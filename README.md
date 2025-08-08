@@ -8,8 +8,6 @@ Two ready-to-run visualizations using **Plotly** created using **ChatGPT GPT-5**
 2. **Animated bar "race"** for categories over time  
    Output: `dist/bar_race.html`
 
-> If your attached video was the state map, run the choropleth. If it was a rank animation, run the bar race.
-
 ---
 
 ## Quick Start (Conda)
