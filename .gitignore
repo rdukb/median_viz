@@ -42,8 +42,6 @@ dist/
 # ---- Conda ----
 # Environments
 *.conda
-*.yml
-*.yaml
 *.lock
 
 # Local environment dirs

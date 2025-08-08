@@ -1,0 +1,9 @@
+name: median_viz
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - pandas>=2.0
+      - plotly>=5.22
