@@ -1,0 +1,649 @@
+time,category,value
+2019-01,Cozy Anime,119
+2019-01,Stand-up Comedy,313
+2019-01,DIY Shorts,70
+2019-01,True Crime,190
+2019-01,Sci-Fi Classics,218
+2019-01,Food Vlogs,41
+2019-01,Indie Films,54
+2019-01,K-Pop,290
+2019-01,Educational,215
+2019-02,Cozy Anime,102
+2019-02,Stand-up Comedy,318
+2019-02,DIY Shorts,56
+2019-02,True Crime,235
+2019-02,Sci-Fi Classics,247
+2019-02,Food Vlogs,23
+2019-02,Indie Films,44
+2019-02,K-Pop,293
+2019-02,Educational,197
+2019-03,Cozy Anime,127
+2019-03,Stand-up Comedy,299
+2019-03,DIY Shorts,59
+2019-03,True Crime,215
+2019-03,Sci-Fi Classics,239
+2019-03,Food Vlogs,35
+2019-03,Indie Films,72
+2019-03,K-Pop,286
+2019-03,Educational,241
+2019-04,Cozy Anime,117
+2019-04,Stand-up Comedy,313
+2019-04,DIY Shorts,57
+2019-04,True Crime,203
+2019-04,Sci-Fi Classics,238
+2019-04,Food Vlogs,57
+2019-04,Indie Films,59
+2019-04,K-Pop,331
+2019-04,Educational,224
+2019-05,Cozy Anime,99
+2019-05,Stand-up Comedy,314
+2019-05,DIY Shorts,95
+2019-05,True Crime,246
+2019-05,Sci-Fi Classics,267
+2019-05,Food Vlogs,72
+2019-05,Indie Films,93
+2019-05,K-Pop,364
+2019-05,Educational,245
+2019-06,Cozy Anime,112
+2019-06,Stand-up Comedy,320
+2019-06,DIY Shorts,93
+2019-06,True Crime,252
+2019-06,Sci-Fi Classics,252
+2019-06,Food Vlogs,85
+2019-06,Indie Films,135
+2019-06,K-Pop,402
+2019-06,Educational,263
+2019-07,Cozy Anime,144
+2019-07,Stand-up Comedy,331
+2019-07,DIY Shorts,77
+2019-07,True Crime,242
+2019-07,Sci-Fi Classics,292
+2019-07,Food Vlogs,113
+2019-07,Indie Films,131
+2019-07,K-Pop,420
+2019-07,Educational,257
+2019-08,Cozy Anime,181
+2019-08,Stand-up Comedy,359
+2019-08,DIY Shorts,57
+2019-08,True Crime,226
+2019-08,Sci-Fi Classics,307
+2019-08,Food Vlogs,131
+2019-08,Indie Films,150
+2019-08,K-Pop,458
+2019-08,Educational,290
+2019-09,Cozy Anime,164
+2019-09,Stand-up Comedy,345
+2019-09,DIY Shorts,66
+2019-09,True Crime,261
+2019-09,Sci-Fi Classics,290
+2019-09,Food Vlogs,113
+2019-09,Indie Films,164
+2019-09,K-Pop,490
+2019-09,Educational,301
+2019-10,Cozy Anime,188
+2019-10,Stand-up Comedy,364
+2019-10,DIY Shorts,43
+2019-10,True Crime,295
+2019-10,Sci-Fi Classics,310
+2019-10,Food Vlogs,109
+2019-10,Indie Films,153
+2019-10,K-Pop,528
+2019-10,Educational,283
+2019-11,Cozy Anime,190
+2019-11,Stand-up Comedy,375
+2019-11,DIY Shorts,34
+2019-11,True Crime,301
+2019-11,Sci-Fi Classics,335
+2019-11,Food Vlogs,134
+2019-11,Indie Films,191
+2019-11,K-Pop,513
+2019-11,Educational,279
+2019-12,Cozy Anime,222
+2019-12,Stand-up Comedy,401
+2019-12,DIY Shorts,79
+2019-12,True Crime,311
+2019-12,Sci-Fi Classics,327
+2019-12,Food Vlogs,164
+2019-12,Indie Films,236
+2019-12,K-Pop,523
+2019-12,Educational,307
+2020-01,Cozy Anime,242
+2020-01,Stand-up Comedy,424
+2020-01,DIY Shorts,83
+2020-01,True Crime,305
+2020-01,Sci-Fi Classics,312
+2020-01,Food Vlogs,161
+2020-01,Indie Films,230
+2020-01,K-Pop,527
+2020-01,Educational,311
+2020-02,Cozy Anime,218
+2020-02,Stand-up Comedy,461
+2020-02,DIY Shorts,81
+2020-02,True Crime,313
+2020-02,Sci-Fi Classics,323
+2020-02,Food Vlogs,136
+2020-02,Indie Films,223
+2020-02,K-Pop,555
+2020-02,Educational,354
+2020-03,Cozy Anime,240
+2020-03,Stand-up Comedy,476
+2020-03,DIY Shorts,72
+2020-03,True Crime,353
+2020-03,Sci-Fi Classics,304
+2020-03,Food Vlogs,169
+2020-03,Indie Films,248
+2020-03,K-Pop,580
+2020-03,Educational,380
+2020-04,Cozy Anime,265
+2020-04,Stand-up Comedy,464
+2020-04,DIY Shorts,108
+2020-04,True Crime,379
+2020-04,Sci-Fi Classics,286
+2020-04,Food Vlogs,168
+2020-04,Indie Films,231
+2020-04,K-Pop,581
+2020-04,Educational,411
+2020-05,Cozy Anime,260
+2020-05,Stand-up Comedy,453
+2020-05,DIY Shorts,126
+2020-05,True Crime,360
+2020-05,Sci-Fi Classics,274
+2020-05,Food Vlogs,143
+2020-05,Indie Films,225
+2020-05,K-Pop,624
+2020-05,Educational,398
+2020-06,Cozy Anime,281
+2020-06,Stand-up Comedy,431
+2020-06,DIY Shorts,110
+2020-06,True Crime,361
+2020-06,Sci-Fi Classics,297
+2020-06,Food Vlogs,137
+2020-06,Indie Films,232
+2020-06,K-Pop,643
+2020-06,Educational,419
+2020-07,Cozy Anime,316
+2020-07,Stand-up Comedy,421
+2020-07,DIY Shorts,99
+2020-07,True Crime,398
+2020-07,Sci-Fi Classics,331
+2020-07,Food Vlogs,173
+2020-07,Indie Films,268
+2020-07,K-Pop,657
+2020-07,Educational,404
+2020-08,Cozy Anime,309
+2020-08,Stand-up Comedy,409
+2020-08,DIY Shorts,117
+2020-08,True Crime,406
+2020-08,Sci-Fi Classics,367
+2020-08,Food Vlogs,168
+2020-08,Indie Films,309
+2020-08,K-Pop,634
+2020-08,Educational,405
+2020-09,Cozy Anime,351
+2020-09,Stand-up Comedy,430
+2020-09,DIY Shorts,110
+2020-09,True Crime,450
+2020-09,Sci-Fi Classics,345
+2020-09,Food Vlogs,210
+2020-09,Indie Films,322
+2020-09,K-Pop,620
+2020-09,Educational,413
+2020-10,Cozy Anime,392
+2020-10,Stand-up Comedy,451
+2020-10,DIY Shorts,106
+2020-10,True Crime,470
+2020-10,Sci-Fi Classics,348
+2020-10,Food Vlogs,253
+2020-10,Indie Films,366
+2020-10,K-Pop,659
+2020-10,Educational,430
+2020-11,Cozy Anime,395
+2020-11,Stand-up Comedy,450
+2020-11,DIY Shorts,111
+2020-11,True Crime,496
+2020-11,Sci-Fi Classics,352
+2020-11,Food Vlogs,253
+2020-11,Indie Films,407
+2020-11,K-Pop,697
+2020-11,Educational,450
+2020-12,Cozy Anime,373
+2020-12,Stand-up Comedy,428
+2020-12,DIY Shorts,121
+2020-12,True Crime,531
+2020-12,Sci-Fi Classics,360
+2020-12,Food Vlogs,252
+2020-12,Indie Films,426
+2020-12,K-Pop,729
+2020-12,Educational,469
+2021-01,Cozy Anime,394
+2021-01,Stand-up Comedy,413
+2021-01,DIY Shorts,124
+2021-01,True Crime,519
+2021-01,Sci-Fi Classics,364
+2021-01,Food Vlogs,287
+2021-01,Indie Films,426
+2021-01,K-Pop,747
+2021-01,Educational,470
+2021-02,Cozy Anime,430
+2021-02,Stand-up Comedy,388
+2021-02,DIY Shorts,160
+2021-02,True Crime,538
+2021-02,Sci-Fi Classics,349
+2021-02,Food Vlogs,277
+2021-02,Indie Films,450
+2021-02,K-Pop,747
+2021-02,Educational,506
+2021-03,Cozy Anime,427
+2021-03,Stand-up Comedy,418
+2021-03,DIY Shorts,177
+2021-03,True Crime,524
+2021-03,Sci-Fi Classics,374
+2021-03,Food Vlogs,311
+2021-03,Indie Films,476
+2021-03,K-Pop,732
+2021-03,Educational,501
+2021-04,Cozy Anime,423
+2021-04,Stand-up Comedy,409
+2021-04,DIY Shorts,155
+2021-04,True Crime,518
+2021-04,Sci-Fi Classics,408
+2021-04,Food Vlogs,304
+2021-04,Indie Films,511
+2021-04,K-Pop,751
+2021-04,Educational,495
+2021-05,Cozy Anime,468
+2021-05,Stand-up Comedy,454
+2021-05,DIY Shorts,146
+2021-05,True Crime,495
+2021-05,Sci-Fi Classics,384
+2021-05,Food Vlogs,292
+2021-05,Indie Films,553
+2021-05,K-Pop,743
+2021-05,Educational,525
+2021-06,Cozy Anime,467
+2021-06,Stand-up Comedy,456
+2021-06,DIY Shorts,124
+2021-06,True Crime,502
+2021-06,Sci-Fi Classics,386
+2021-06,Food Vlogs,304
+2021-06,Indie Films,592
+2021-06,K-Pop,748
+2021-06,Educational,541
+2021-07,Cozy Anime,475
+2021-07,Stand-up Comedy,500
+2021-07,DIY Shorts,152
+2021-07,True Crime,493
+2021-07,Sci-Fi Classics,368
+2021-07,Food Vlogs,324
+2021-07,Indie Films,625
+2021-07,K-Pop,789
+2021-07,Educational,569
+2021-08,Cozy Anime,514
+2021-08,Stand-up Comedy,491
+2021-08,DIY Shorts,195
+2021-08,True Crime,487
+2021-08,Sci-Fi Classics,410
+2021-08,Food Vlogs,364
+2021-08,Indie Films,602
+2021-08,K-Pop,820
+2021-08,Educational,567
+2021-09,Cozy Anime,489
+2021-09,Stand-up Comedy,485
+2021-09,DIY Shorts,192
+2021-09,True Crime,480
+2021-09,Sci-Fi Classics,445
+2021-09,Food Vlogs,354
+2021-09,Indie Films,584
+2021-09,K-Pop,836
+2021-09,Educational,608
+2021-10,Cozy Anime,531
+2021-10,Stand-up Comedy,521
+2021-10,DIY Shorts,180
+2021-10,True Crime,462
+2021-10,Sci-Fi Classics,451
+2021-10,Food Vlogs,353
+2021-10,Indie Films,594
+2021-10,K-Pop,816
+2021-10,Educational,595
+2021-11,Cozy Anime,570
+2021-11,Stand-up Comedy,553
+2021-11,DIY Shorts,158
+2021-11,True Crime,445
+2021-11,Sci-Fi Classics,482
+2021-11,Food Vlogs,369
+2021-11,Indie Films,633
+2021-11,K-Pop,856
+2021-11,Educational,595
+2021-12,Cozy Anime,580
+2021-12,Stand-up Comedy,585
+2021-12,DIY Shorts,198
+2021-12,True Crime,488
+2021-12,Sci-Fi Classics,518
+2021-12,Food Vlogs,408
+2021-12,Indie Films,639
+2021-12,K-Pop,897
+2021-12,Educational,603
+2022-01,Cozy Anime,580
+2022-01,Stand-up Comedy,617
+2022-01,DIY Shorts,190
+2022-01,True Crime,516
+2022-01,Sci-Fi Classics,508
+2022-01,Food Vlogs,433
+2022-01,Indie Films,670
+2022-01,K-Pop,912
+2022-01,Educational,587
+2022-02,Cozy Anime,585
+2022-02,Stand-up Comedy,646
+2022-02,DIY Shorts,174
+2022-02,True Crime,518
+2022-02,Sci-Fi Classics,521
+2022-02,Food Vlogs,423
+2022-02,Indie Films,664
+2022-02,K-Pop,933
+2022-02,Educational,580
+2022-03,Cozy Anime,592
+2022-03,Stand-up Comedy,638
+2022-03,DIY Shorts,208
+2022-03,True Crime,521
+2022-03,Sci-Fi Classics,508
+2022-03,Food Vlogs,448
+2022-03,Indie Films,701
+2022-03,K-Pop,928
+2022-03,Educational,583
+2022-04,Cozy Anime,587
+2022-04,Stand-up Comedy,668
+2022-04,DIY Shorts,248
+2022-04,True Crime,547
+2022-04,Sci-Fi Classics,526
+2022-04,Food Vlogs,476
+2022-04,Indie Films,701
+2022-04,K-Pop,948
+2022-04,Educational,598
+2022-05,Cozy Anime,573
+2022-05,Stand-up Comedy,689
+2022-05,DIY Shorts,225
+2022-05,True Crime,565
+2022-05,Sci-Fi Classics,571
+2022-05,Food Vlogs,509
+2022-05,Indie Films,732
+2022-05,K-Pop,925
+2022-05,Educational,622
+2022-06,Cozy Anime,590
+2022-06,Stand-up Comedy,730
+2022-06,DIY Shorts,237
+2022-06,True Crime,605
+2022-06,Sci-Fi Classics,554
+2022-06,Food Vlogs,498
+2022-06,Indie Films,736
+2022-06,K-Pop,913
+2022-06,Educational,607
+2022-07,Cozy Anime,598
+2022-07,Stand-up Comedy,739
+2022-07,DIY Shorts,217
+2022-07,True Crime,603
+2022-07,Sci-Fi Classics,563
+2022-07,Food Vlogs,489
+2022-07,Indie Films,765
+2022-07,K-Pop,921
+2022-07,Educational,633
+2022-08,Cozy Anime,592
+2022-08,Stand-up Comedy,782
+2022-08,DIY Shorts,257
+2022-08,True Crime,641
+2022-08,Sci-Fi Classics,579
+2022-08,Food Vlogs,475
+2022-08,Indie Films,775
+2022-08,K-Pop,903
+2022-08,Educational,631
+2022-09,Cozy Anime,621
+2022-09,Stand-up Comedy,766
+2022-09,DIY Shorts,266
+2022-09,True Crime,618
+2022-09,Sci-Fi Classics,565
+2022-09,Food Vlogs,483
+2022-09,Indie Films,760
+2022-09,K-Pop,906
+2022-09,Educational,614
+2022-10,Cozy Anime,629
+2022-10,Stand-up Comedy,756
+2022-10,DIY Shorts,299
+2022-10,True Crime,594
+2022-10,Sci-Fi Classics,583
+2022-10,Food Vlogs,528
+2022-10,Indie Films,788
+2022-10,K-Pop,915
+2022-10,Educational,605
+2022-11,Cozy Anime,609
+2022-11,Stand-up Comedy,798
+2022-11,DIY Shorts,304
+2022-11,True Crime,583
+2022-11,Sci-Fi Classics,578
+2022-11,Food Vlogs,536
+2022-11,Indie Films,769
+2022-11,K-Pop,913
+2022-11,Educational,605
+2022-12,Cozy Anime,623
+2022-12,Stand-up Comedy,812
+2022-12,DIY Shorts,346
+2022-12,True Crime,584
+2022-12,Sci-Fi Classics,590
+2022-12,Food Vlogs,568
+2022-12,Indie Films,808
+2022-12,K-Pop,910
+2022-12,Educational,614
+2023-01,Cozy Anime,642
+2023-01,Stand-up Comedy,789
+2023-01,DIY Shorts,353
+2023-01,True Crime,563
+2023-01,Sci-Fi Classics,566
+2023-01,Food Vlogs,545
+2023-01,Indie Films,847
+2023-01,K-Pop,955
+2023-01,Educational,613
+2023-02,Cozy Anime,682
+2023-02,Stand-up Comedy,824
+2023-02,DIY Shorts,359
+2023-02,True Crime,595
+2023-02,Sci-Fi Classics,554
+2023-02,Food Vlogs,575
+2023-02,Indie Films,885
+2023-02,K-Pop,999
+2023-02,Educational,638
+2023-03,Cozy Anime,721
+2023-03,Stand-up Comedy,838
+2023-03,DIY Shorts,361
+2023-03,True Crime,599
+2023-03,Sci-Fi Classics,572
+2023-03,Food Vlogs,575
+2023-03,Indie Films,877
+2023-03,K-Pop,1025
+2023-03,Educational,657
+2023-04,Cozy Anime,702
+2023-04,Stand-up Comedy,829
+2023-04,DIY Shorts,337
+2023-04,True Crime,583
+2023-04,Sci-Fi Classics,579
+2023-04,Food Vlogs,605
+2023-04,Indie Films,872
+2023-04,K-Pop,1007
+2023-04,Educational,642
+2023-05,Cozy Anime,725
+2023-05,Stand-up Comedy,868
+2023-05,DIY Shorts,348
+2023-05,True Crime,589
+2023-05,Sci-Fi Classics,591
+2023-05,Food Vlogs,585
+2023-05,Indie Films,905
+2023-05,K-Pop,1005
+2023-05,Educational,637
+2023-06,Cozy Anime,734
+2023-06,Stand-up Comedy,900
+2023-06,DIY Shorts,323
+2023-06,True Crime,597
+2023-06,Sci-Fi Classics,612
+2023-06,Food Vlogs,602
+2023-06,Indie Films,950
+2023-06,K-Pop,1021
+2023-06,Educational,643
+2023-07,Cozy Anime,713
+2023-07,Stand-up Comedy,914
+2023-07,DIY Shorts,325
+2023-07,True Crime,617
+2023-07,Sci-Fi Classics,610
+2023-07,Food Vlogs,577
+2023-07,Indie Films,967
+2023-07,K-Pop,1044
+2023-07,Educational,628
+2023-08,Cozy Anime,748
+2023-08,Stand-up Comedy,924
+2023-08,DIY Shorts,364
+2023-08,True Crime,617
+2023-08,Sci-Fi Classics,616
+2023-08,Food Vlogs,616
+2023-08,Indie Films,942
+2023-08,K-Pop,1030
+2023-08,Educational,636
+2023-09,Cozy Anime,734
+2023-09,Stand-up Comedy,917
+2023-09,DIY Shorts,390
+2023-09,True Crime,597
+2023-09,Sci-Fi Classics,641
+2023-09,Food Vlogs,593
+2023-09,Indie Films,955
+2023-09,K-Pop,1043
+2023-09,Educational,640
+2023-10,Cozy Anime,719
+2023-10,Stand-up Comedy,959
+2023-10,DIY Shorts,384
+2023-10,True Crime,621
+2023-10,Sci-Fi Classics,657
+2023-10,Food Vlogs,631
+2023-10,Indie Films,949
+2023-10,K-Pop,1054
+2023-10,Educational,633
+2023-11,Cozy Anime,699
+2023-11,Stand-up Comedy,999
+2023-11,DIY Shorts,413
+2023-11,True Crime,660
+2023-11,Sci-Fi Classics,649
+2023-11,Food Vlogs,673
+2023-11,Indie Films,988
+2023-11,K-Pop,1031
+2023-11,Educational,637
+2023-12,Cozy Anime,684
+2023-12,Stand-up Comedy,977
+2023-12,DIY Shorts,393
+2023-12,True Crime,652
+2023-12,Sci-Fi Classics,670
+2023-12,Food Vlogs,661
+2023-12,Indie Films,1011
+2023-12,K-Pop,1063
+2023-12,Educational,618
+2024-01,Cozy Anime,661
+2024-01,Stand-up Comedy,1020
+2024-01,DIY Shorts,399
+2024-01,True Crime,689
+2024-01,Sci-Fi Classics,678
+2024-01,Food Vlogs,636
+2024-01,Indie Films,1044
+2024-01,K-Pop,1046
+2024-01,Educational,657
+2024-02,Cozy Anime,704
+2024-02,Stand-up Comedy,1006
+2024-02,DIY Shorts,441
+2024-02,True Crime,672
+2024-02,Sci-Fi Classics,713
+2024-02,Food Vlogs,643
+2024-02,Indie Films,1028
+2024-02,K-Pop,1054
+2024-02,Educational,662
+2024-03,Cozy Anime,705
+2024-03,Stand-up Comedy,1010
+2024-03,DIY Shorts,474
+2024-03,True Crime,710
+2024-03,Sci-Fi Classics,736
+2024-03,Food Vlogs,627
+2024-03,Indie Films,1064
+2024-03,K-Pop,1065
+2024-03,Educational,642
+2024-04,Cozy Anime,705
+2024-04,Stand-up Comedy,994
+2024-04,DIY Shorts,467
+2024-04,True Crime,727
+2024-04,Sci-Fi Classics,743
+2024-04,Food Vlogs,640
+2024-04,Indie Films,1056
+2024-04,K-Pop,1041
+2024-04,Educational,678
+2024-05,Cozy Anime,687
+2024-05,Stand-up Comedy,1031
+2024-05,DIY Shorts,476
+2024-05,True Crime,714
+2024-05,Sci-Fi Classics,745
+2024-05,Food Vlogs,677
+2024-05,Indie Films,1068
+2024-05,K-Pop,1082
+2024-05,Educational,689
+2024-06,Cozy Anime,721
+2024-06,Stand-up Comedy,1065
+2024-06,DIY Shorts,510
+2024-06,True Crime,704
+2024-06,Sci-Fi Classics,790
+2024-06,Food Vlogs,677
+2024-06,Indie Films,1082
+2024-06,K-Pop,1067
+2024-06,Educational,724
+2024-07,Cozy Anime,698
+2024-07,Stand-up Comedy,1077
+2024-07,DIY Shorts,543
+2024-07,True Crime,688
+2024-07,Sci-Fi Classics,829
+2024-07,Food Vlogs,709
+2024-07,Indie Films,1091
+2024-07,K-Pop,1091
+2024-07,Educational,725
+2024-08,Cozy Anime,699
+2024-08,Stand-up Comedy,1061
+2024-08,DIY Shorts,529
+2024-08,True Crime,681
+2024-08,Sci-Fi Classics,871
+2024-08,Food Vlogs,717
+2024-08,Indie Films,1112
+2024-08,K-Pop,1082
+2024-08,Educational,765
+2024-09,Cozy Anime,709
+2024-09,Stand-up Comedy,1050
+2024-09,DIY Shorts,550
+2024-09,True Crime,685
+2024-09,Sci-Fi Classics,909
+2024-09,Food Vlogs,754
+2024-09,Indie Films,1137
+2024-09,K-Pop,1060
+2024-09,Educational,760
+2024-10,Cozy Anime,684
+2024-10,Stand-up Comedy,1087
+2024-10,DIY Shorts,582
+2024-10,True Crime,711
+2024-10,Sci-Fi Classics,922
+2024-10,Food Vlogs,747
+2024-10,Indie Films,1165
+2024-10,K-Pop,1079
+2024-10,Educational,783
+2024-11,Cozy Anime,699
+2024-11,Stand-up Comedy,1077
+2024-11,DIY Shorts,599
+2024-11,True Crime,686
+2024-11,Sci-Fi Classics,938
+2024-11,Food Vlogs,765
+2024-11,Indie Films,1190
+2024-11,K-Pop,1069
+2024-11,Educational,783
+2024-12,Cozy Anime,675
+2024-12,Stand-up Comedy,1089
+2024-12,DIY Shorts,606
+2024-12,True Crime,708
+2024-12,Sci-Fi Classics,921
+2024-12,Food Vlogs,790
+2024-12,Indie Films,1214
+2024-12,K-Pop,1053
+2024-12,Educational,804

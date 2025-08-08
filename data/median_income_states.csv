@@ -1,0 +1,501 @@
+year,state,abbr,median_income
+2015,Alabama,AL,56238
+2015,Alaska,AK,51504
+2015,Arizona,AZ,53853
+2015,Arkansas,AR,53728
+2015,California,CA,58233
+2015,Colorado,CO,58043
+2015,Connecticut,CT,60108
+2015,Delaware,DE,53812
+2015,Florida,FL,56856
+2015,Georgia,GA,53944
+2015,Hawaii,HI,55791
+2015,Idaho,ID,58439
+2015,Illinois,IL,54817
+2015,Indiana,IN,56528
+2015,Iowa,IA,60523
+2015,Kansas,KS,59964
+2015,Kentucky,KY,57605
+2015,Louisiana,LA,60927
+2015,Maine,ME,63030
+2015,Maryland,MD,62916
+2015,Massachusetts,MA,62719
+2015,Michigan,MI,60087
+2015,Minnesota,MN,58873
+2015,Mississippi,MS,65741
+2015,Missouri,MO,60957
+2015,Montana,MT,59259
+2015,Nebraska,NE,59592
+2015,Nevada,NV,66042
+2015,New Hampshire,NH,64345
+2015,New Jersey,NJ,66311
+2015,New Mexico,NM,65977
+2015,New York,NY,64692
+2015,North Carolina,NC,68571
+2015,North Dakota,ND,61545
+2015,Ohio,OH,63601
+2015,Oklahoma,OK,66566
+2015,Oregon,OR,66529
+2015,Pennsylvania,PA,67871
+2015,Rhode Island,RI,62775
+2015,South Carolina,SC,64566
+2015,South Dakota,SD,65370
+2015,Tennessee,TN,70306
+2015,Texas,TX,70698
+2015,Utah,UT,67013
+2015,Vermont,VT,67914
+2015,Virginia,VA,71333
+2015,Washington,WA,66132
+2015,West Virginia,WV,68010
+2015,Wisconsin,WI,70890
+2015,Wyoming,WY,71449
+2016,Alabama,AL,57181
+2016,Alaska,AK,57740
+2016,Arizona,AZ,54347
+2016,Arkansas,AR,58923
+2016,California,CA,54811
+2016,Colorado,CO,56684
+2016,Connecticut,CT,61835
+2016,Delaware,DE,60107
+2016,Florida,FL,56700
+2016,Georgia,GA,57942
+2016,Hawaii,HI,61213
+2016,Idaho,ID,57008
+2016,Illinois,IL,62317
+2016,Indiana,IN,59260
+2016,Iowa,IA,56758
+2016,Kansas,KS,64360
+2016,Kentucky,KY,64514
+2016,Louisiana,LA,59694
+2016,Maine,ME,63080
+2016,Maryland,MD,61399
+2016,Massachusetts,MA,61704
+2016,Michigan,MI,60411
+2016,Minnesota,MN,61182
+2016,Mississippi,MS,63849
+2016,Missouri,MO,61916
+2016,Montana,MT,64526
+2016,Nebraska,NE,67551
+2016,Nevada,NV,63541
+2016,New Hampshire,NH,62137
+2016,New Jersey,NJ,65179
+2016,New Mexico,NM,62317
+2016,New York,NY,61597
+2016,North Carolina,NC,63294
+2016,North Dakota,ND,63706
+2016,Ohio,OH,66068
+2016,Oklahoma,OK,63214
+2016,Oregon,OR,66336
+2016,Pennsylvania,PA,67275
+2016,Rhode Island,RI,65825
+2016,South Carolina,SC,70562
+2016,South Dakota,SD,70110
+2016,Tennessee,TN,65736
+2016,Texas,TX,72197
+2016,Utah,UT,71124
+2016,Vermont,VT,71952
+2016,Virginia,VA,68200
+2016,Washington,WA,68449
+2016,West Virginia,WV,67659
+2016,Wisconsin,WI,66965
+2016,Wyoming,WY,74410
+2017,Alabama,AL,55781
+2017,Alaska,AK,59505
+2017,Arizona,AZ,57574
+2017,Arkansas,AR,61911
+2017,California,CA,57552
+2017,Colorado,CO,59504
+2017,Connecticut,CT,56341
+2017,Delaware,DE,59323
+2017,Florida,FL,57427
+2017,Georgia,GA,64705
+2017,Hawaii,HI,64242
+2017,Idaho,ID,63424
+2017,Illinois,IL,61768
+2017,Indiana,IN,60540
+2017,Iowa,IA,58458
+2017,Kansas,KS,64926
+2017,Kentucky,KY,59479
+2017,Louisiana,LA,60833
+2017,Maine,ME,65917
+2017,Maryland,MD,60499
+2017,Massachusetts,MA,62721
+2017,Michigan,MI,66220
+2017,Minnesota,MN,65729
+2017,Mississippi,MS,61901
+2017,Missouri,MO,64817
+2017,Montana,MT,61994
+2017,Nebraska,NE,65964
+2017,Nevada,NV,64598
+2017,New Hampshire,NH,69713
+2017,New Jersey,NJ,68981
+2017,New Mexico,NM,67661
+2017,New York,NY,68378
+2017,North Carolina,NC,66842
+2017,North Dakota,ND,68587
+2017,Ohio,OH,67446
+2017,Oklahoma,OK,67044
+2017,Oregon,OR,65890
+2017,Pennsylvania,PA,64916
+2017,Rhode Island,RI,65376
+2017,South Carolina,SC,69307
+2017,South Dakota,SD,69870
+2017,Tennessee,TN,65102
+2017,Texas,TX,72290
+2017,Utah,UT,66450
+2017,Vermont,VT,66416
+2017,Virginia,VA,73818
+2017,Washington,WA,68032
+2017,West Virginia,WV,69219
+2017,Wisconsin,WI,73474
+2017,Wyoming,WY,70159
+2018,Alabama,AL,56703
+2018,Alaska,AK,63115
+2018,Arizona,AZ,60172
+2018,Arkansas,AR,57742
+2018,California,CA,62463
+2018,Colorado,CO,56747
+2018,Connecticut,CT,58016
+2018,Delaware,DE,60117
+2018,Florida,FL,60529
+2018,Georgia,GA,62163
+2018,Hawaii,HI,58910
+2018,Idaho,ID,64036
+2018,Illinois,IL,57992
+2018,Indiana,IN,62833
+2018,Iowa,IA,60712
+2018,Kansas,KS,60524
+2018,Kentucky,KY,61405
+2018,Louisiana,LA,62604
+2018,Maine,ME,62817
+2018,Maryland,MD,62800
+2018,Massachusetts,MA,61677
+2018,Michigan,MI,65019
+2018,Minnesota,MN,60955
+2018,Mississippi,MS,67301
+2018,Missouri,MO,67493
+2018,Montana,MT,69123
+2018,Nebraska,NE,71101
+2018,Nevada,NV,69178
+2018,New Hampshire,NH,64410
+2018,New Jersey,NJ,67554
+2018,New Mexico,NM,65381
+2018,New York,NY,70272
+2018,North Carolina,NC,65512
+2018,North Dakota,ND,64514
+2018,Ohio,OH,67167
+2018,Oklahoma,OK,67535
+2018,Oregon,OR,72150
+2018,Pennsylvania,PA,72624
+2018,Rhode Island,RI,72427
+2018,South Carolina,SC,69560
+2018,South Dakota,SD,67864
+2018,Tennessee,TN,67660
+2018,Texas,TX,73003
+2018,Utah,UT,70927
+2018,Vermont,VT,73690
+2018,Virginia,VA,67521
+2018,Washington,WA,73449
+2018,West Virginia,WV,73248
+2018,Wisconsin,WI,69263
+2018,Wyoming,WY,77530
+2019,Alabama,AL,55616
+2019,Alaska,AK,57497
+2019,Arizona,AZ,58120
+2019,Arkansas,AR,63120
+2019,California,CA,59195
+2019,Colorado,CO,65745
+2019,Connecticut,CT,60384
+2019,Delaware,DE,61330
+2019,Florida,FL,62005
+2019,Georgia,GA,63026
+2019,Hawaii,HI,64293
+2019,Idaho,ID,63074
+2019,Illinois,IL,66525
+2019,Indiana,IN,62513
+2019,Iowa,IA,65551
+2019,Kansas,KS,61739
+2019,Kentucky,KY,62778
+2019,Louisiana,LA,67442
+2019,Maine,ME,63929
+2019,Maryland,MD,65566
+2019,Massachusetts,MA,68161
+2019,Michigan,MI,62452
+2019,Minnesota,MN,68192
+2019,Mississippi,MS,62219
+2019,Missouri,MO,66676
+2019,Montana,MT,66928
+2019,Nebraska,NE,64513
+2019,Nevada,NV,69796
+2019,New Hampshire,NH,70802
+2019,New Jersey,NJ,67091
+2019,New Mexico,NM,66284
+2019,New York,NY,72554
+2019,North Carolina,NC,70799
+2019,North Dakota,ND,71786
+2019,Ohio,OH,68765
+2019,Oklahoma,OK,72439
+2019,Oregon,OR,70168
+2019,Pennsylvania,PA,66696
+2019,Rhode Island,RI,68238
+2019,South Carolina,SC,73624
+2019,South Dakota,SD,74545
+2019,Tennessee,TN,68885
+2019,Texas,TX,71584
+2019,Utah,UT,71761
+2019,Vermont,VT,71040
+2019,Virginia,VA,75927
+2019,Washington,WA,76067
+2019,West Virginia,WV,74440
+2019,Wisconsin,WI,70865
+2019,Wyoming,WY,72252
+2020,Alabama,AL,59884
+2020,Alaska,AK,55676
+2020,Arizona,AZ,62277
+2020,Arkansas,AR,60231
+2020,California,CA,59170
+2020,Colorado,CO,64832
+2020,Connecticut,CT,64929
+2020,Delaware,DE,63473
+2020,Florida,FL,58049
+2020,Georgia,GA,61851
+2020,Hawaii,HI,66164
+2020,Idaho,ID,62949
+2020,Illinois,IL,67327
+2020,Indiana,IN,66496
+2020,Iowa,IA,62613
+2020,Kansas,KS,60754
+2020,Kentucky,KY,64190
+2020,Louisiana,LA,67664
+2020,Maine,ME,69593
+2020,Maryland,MD,65910
+2020,Massachusetts,MA,66454
+2020,Michigan,MI,63952
+2020,Minnesota,MN,70855
+2020,Mississippi,MS,71222
+2020,Missouri,MO,73352
+2020,Montana,MT,69429
+2020,Nebraska,NE,71593
+2020,Nevada,NV,71012
+2020,New Hampshire,NH,72302
+2020,New Jersey,NJ,73030
+2020,New Mexico,NM,65118
+2020,New York,NY,72033
+2020,North Carolina,NC,73114
+2020,North Dakota,ND,74896
+2020,Ohio,OH,76038
+2020,Oklahoma,OK,73411
+2020,Oregon,OR,68800
+2020,Pennsylvania,PA,76140
+2020,Rhode Island,RI,69240
+2020,South Carolina,SC,74039
+2020,South Dakota,SD,76438
+2020,Tennessee,TN,70142
+2020,Texas,TX,76644
+2020,Utah,UT,72324
+2020,Vermont,VT,76086
+2020,Virginia,VA,70446
+2020,Washington,WA,75191
+2020,West Virginia,WV,74044
+2020,Wisconsin,WI,72037
+2020,Wyoming,WY,81575
+2021,Alabama,AL,60240
+2021,Alaska,AK,64481
+2021,Arizona,AZ,63844
+2021,Arkansas,AR,66905
+2021,California,CA,59880
+2021,Colorado,CO,59846
+2021,Connecticut,CT,62626
+2021,Delaware,DE,67411
+2021,Florida,FL,59179
+2021,Georgia,GA,66051
+2021,Hawaii,HI,66107
+2021,Idaho,ID,67468
+2021,Illinois,IL,66694
+2021,Indiana,IN,64597
+2021,Iowa,IA,66695
+2021,Kansas,KS,63417
+2021,Kentucky,KY,65313
+2021,Louisiana,LA,64478
+2021,Maine,ME,68765
+2021,Maryland,MD,71542
+2021,Massachusetts,MA,74056
+2021,Michigan,MI,72253
+2021,Minnesota,MN,66246
+2021,Mississippi,MS,66659
+2021,Missouri,MO,74853
+2021,Montana,MT,72870
+2021,Nebraska,NE,70630
+2021,Nevada,NV,70096
+2021,New Hampshire,NH,71938
+2021,New Jersey,NJ,70550
+2021,New Mexico,NM,72771
+2021,New York,NY,70244
+2021,North Carolina,NC,72923
+2021,North Dakota,ND,71021
+2021,Ohio,OH,70151
+2021,Oklahoma,OK,74075
+2021,Oregon,OR,76744
+2021,Pennsylvania,PA,75363
+2021,Rhode Island,RI,75734
+2021,South Carolina,SC,72455
+2021,South Dakota,SD,72288
+2021,Tennessee,TN,72347
+2021,Texas,TX,72761
+2021,Utah,UT,78694
+2021,Vermont,VT,77989
+2021,Virginia,VA,74795
+2021,Washington,WA,75931
+2021,West Virginia,WV,76742
+2021,Wisconsin,WI,77291
+2021,Wyoming,WY,81520
+2022,Alabama,AL,62708
+2022,Alaska,AK,59624
+2022,Arizona,AZ,66175
+2022,Arkansas,AR,67123
+2022,California,CA,61210
+2022,Colorado,CO,70187
+2022,Connecticut,CT,65140
+2022,Delaware,DE,62852
+2022,Florida,FL,67028
+2022,Georgia,GA,60682
+2022,Hawaii,HI,61728
+2022,Idaho,ID,68167
+2022,Illinois,IL,72663
+2022,Indiana,IN,64358
+2022,Iowa,IA,68703
+2022,Kansas,KS,67208
+2022,Kentucky,KY,72275
+2022,Louisiana,LA,68387
+2022,Maine,ME,67016
+2022,Maryland,MD,68205
+2022,Massachusetts,MA,68268
+2022,Michigan,MI,75588
+2022,Minnesota,MN,75764
+2022,Mississippi,MS,71516
+2022,Missouri,MO,73221
+2022,Montana,MT,67152
+2022,Nebraska,NE,75971
+2022,Nevada,NV,72268
+2022,New Hampshire,NH,69401
+2022,New Jersey,NJ,68209
+2022,New Mexico,NM,70291
+2022,New York,NY,75790
+2022,North Carolina,NC,75469
+2022,North Dakota,ND,75341
+2022,Ohio,OH,74810
+2022,Oklahoma,OK,77573
+2022,Oregon,OR,77570
+2022,Pennsylvania,PA,78619
+2022,Rhode Island,RI,75422
+2022,South Carolina,SC,73086
+2022,South Dakota,SD,78094
+2022,Tennessee,TN,74441
+2022,Texas,TX,77129
+2022,Utah,UT,80944
+2022,Vermont,VT,77559
+2022,Virginia,VA,80201
+2022,Washington,WA,78856
+2022,West Virginia,WV,74626
+2022,Wisconsin,WI,75156
+2022,Wyoming,WY,79189
+2023,Alabama,AL,61544
+2023,Alaska,AK,63067
+2023,Arizona,AZ,69739
+2023,Arkansas,AR,60088
+2023,California,CA,61723
+2023,Colorado,CO,67717
+2023,Connecticut,CT,66235
+2023,Delaware,DE,61772
+2023,Florida,FL,66534
+2023,Georgia,GA,67250
+2023,Hawaii,HI,67616
+2023,Idaho,ID,62898
+2023,Illinois,IL,71263
+2023,Indiana,IN,70794
+2023,Iowa,IA,72080
+2023,Kansas,KS,68324
+2023,Kentucky,KY,70028
+2023,Louisiana,LA,66455
+2023,Maine,ME,73402
+2023,Maryland,MD,71714
+2023,Massachusetts,MA,70026
+2023,Michigan,MI,74229
+2023,Minnesota,MN,74490
+2023,Mississippi,MS,75788
+2023,Missouri,MO,73754
+2023,Montana,MT,70691
+2023,Nebraska,NE,71003
+2023,Nevada,NV,69710
+2023,New Hampshire,NH,71737
+2023,New Jersey,NJ,77139
+2023,New Mexico,NM,76250
+2023,New York,NY,73984
+2023,North Carolina,NC,77709
+2023,North Dakota,ND,75872
+2023,Ohio,OH,77065
+2023,Oklahoma,OK,71344
+2023,Oregon,OR,77664
+2023,Pennsylvania,PA,74147
+2023,Rhode Island,RI,74751
+2023,South Carolina,SC,73715
+2023,South Dakota,SD,80277
+2023,Tennessee,TN,71596
+2023,Texas,TX,75235
+2023,Utah,UT,74709
+2023,Vermont,VT,76996
+2023,Virginia,VA,79896
+2023,Washington,WA,81510
+2023,West Virginia,WV,79939
+2023,Wisconsin,WI,83040
+2023,Wyoming,WY,74830
+2024,Alabama,AL,62223
+2024,Alaska,AK,69604
+2024,Arizona,AZ,62448
+2024,Arkansas,AR,66921
+2024,California,CA,67153
+2024,Colorado,CO,73545
+2024,Connecticut,CT,67277
+2024,Delaware,DE,62831
+2024,Florida,FL,62413
+2024,Georgia,GA,67393
+2024,Hawaii,HI,64315
+2024,Idaho,ID,71544
+2024,Illinois,IL,67930
+2024,Indiana,IN,71871
+2024,Iowa,IA,72653
+2024,Kansas,KS,71864
+2024,Kentucky,KY,67560
+2024,Louisiana,LA,73852
+2024,Maine,ME,78379
+2024,Maryland,MD,70837
+2024,Massachusetts,MA,72074
+2024,Michigan,MI,75264
+2024,Minnesota,MN,71013
+2024,Mississippi,MS,68181
+2024,Missouri,MO,76353
+2024,Montana,MT,76594
+2024,Nebraska,NE,75837
+2024,Nevada,NV,68617
+2024,New Hampshire,NH,77813
+2024,New Jersey,NJ,79482
+2024,New Mexico,NM,70125
+2024,New York,NY,80330
+2024,North Carolina,NC,76570
+2024,North Dakota,ND,74125
+2024,Ohio,OH,80133
+2024,Oklahoma,OK,75489
+2024,Oregon,OR,76749
+2024,Pennsylvania,PA,78902
+2024,Rhode Island,RI,73265
+2024,South Carolina,SC,80011
+2024,South Dakota,SD,73103
+2024,Tennessee,TN,81329
+2024,Texas,TX,82045
+2024,Utah,UT,75951
+2024,Vermont,VT,82600
+2024,Virginia,VA,81136
+2024,Washington,WA,79198
+2024,West Virginia,WV,77487
+2024,Wisconsin,WI,83417
+2024,Wyoming,WY,86803
