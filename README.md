@@ -1,6 +1,6 @@
 # Median Income Visualizations (Dark Theme, Python)
 
-Two ready-to-run visualizations using **Plotly** (works great in a Conda env):
+Two ready-to-run visualizations using **Plotly** created using **ChatGPT GPT-5** (works great in a Conda env):
 
 1. **Animated US-state choropleth** of median income over time  
    Output: `dist/median_income_map.html`
