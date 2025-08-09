@@ -1,117 +1,206 @@
 # Median Income & Revenue Visualizations
 
-This project contains three ready-to-run **Plotly** visualizations created using **ChatGPT GPT-5** (all export to self-contained HTML files):
+Interactive data visualizations with **two runtimes**:
 
-1. **Animated US-state choropleth** of median income over time
-   (`--type map`)
-2. **Animated bar race** showing top categories over time
-   (`--type bar`)
-3. **Animated pie/donut** showing federal revenue composition over years
-   (`--type pie`)
+- **Python CLI (Plotly Express)** — quick scripts to produce shareable HTML: choropleth map, bar, pie.
+- **Next.js + Tailwind (Plotly.js)** — modern, pastel UI with animated charts and CSV upload.
 
 ---
 
-## Quick Start (Conda)
+## Table of Contents
+- [Quick Start](#quick-start)
+- [Python CLI (Plotly Express)](#python-cli-plotly-express)
+  - [Environment Setup](#environment-setup)
+  - [Commands](#commands)
+  - [Input Data & Schemas](#input-data--schemas)
+  - [Output](#output)
+  - [Troubleshooting (Python)](#troubleshooting-python)
+- [Web UI: Next.js + Tailwind + Plotly](#web-ui-nextjs--tailwind--plotly)
+  - [Requirements](#requirements)
+  - [Install & Run (Dev)](#install--run-dev)
+  - [Pages & CSV Schemas](#pages--csv-schemas)
+  - [Troubleshooting (Web)](#troubleshooting-web)
+- [Project Structure](#project-structure)
+- [Node / Python Versions](#node--python-versions)
+- [Security Notes](#security-notes)
+- [License](#license)
 
+---
+
+## Quick Start
+
+### Python (one-liners)
 ```bash
-# 1) Create & activate environment
-conda create -n median_viz python=3.11 -y
+# create conda env (first time)
+conda env create -f environment.yml
 conda activate median_viz
 
-# 2) Install dependencies
-pip install -r requirements.txt
-
-# 3) Generate a visualization
-# Map of median income over time
-python viz.py --type map
-
-# Bar race (top 8 categories)
-python viz.py --type bar --top-n 8
-
-# Animated pie chart of federal revenue
+# generate visualizations
 python viz.py --type pie
+python viz.py --type bar
+python viz.py --type map
 ```
 
-Outputs will be in the `dist/` folder:
-
-* `median_income_map.html`
-* `bar_race.html`
-* `federal_revenue_pie.html`
-
-Open them in your browser by double-clicking or with:
-
+### Web UI
 ```bash
-open dist/median_income_map.html   # macOS
-start dist\median_income_map.html  # Windows
+# from repo root
+cd apps/web-next
+npm install
+npm run dev
+# http://localhost:3000  (see /pie, /bar, /map)
 ```
 
 ---
 
-## Using your own data
+## Python CLI (Plotly Express)
 
-### Map (`--type map`)
+The Python side is ideal for **static artifacts** you can publish or email as `.html`.
 
-CSV columns:
+### Environment Setup
+```bash
+# If you don't have the env yet
+conda env create -f environment.yml
+conda activate median_viz
 
-* `year` — e.g., `2018`
-* `state` — full state name
-* `abbr` — two-letter state code (e.g., CA, NY)
-* `median_income` — numeric value
+# Or, create manually:
+conda create -n median_viz python=3.11 -y
+conda activate median_viz
+pip install -r requirements.txt   # if you have one
+```
 
-Example: `data/median_income_states.csv`
+### Commands
+```bash
+# All outputs go to dist/ (HTML). If it doesn't exist, it's created.
+python viz.py --type pie    # Federal revenue donut (animated by year)
+python viz.py --type bar    # Bar chart example
+python viz.py --type map    # US choropleth (animated by year)
+```
 
-### Bar race (`--type bar`)
+Options:
+- `--out PATH` — override output path (defaults inside `dist/`).
+- `--csv PATH` — use your own CSV instead of the included sample.
 
-CSV columns:
+### Input Data & Schemas
 
-* `time` — sortable frame key (e.g., `YYYY-MM`)
-* `category` — name
-* `value` — number
+Default CSV files live under `data/`:
+- `federal_revenue.csv` — for `--type pie`  
+  Schema: `year,category,amount`
 
-Example: `data/bar_race_sample.csv`
+- `bar_sample.csv` — for `--type bar`  
+  Schema: `time,category,value` (e.g., `2024-01`)
 
-`--top-n` controls how many bars are displayed per frame.
+- `median_income_states.csv` — for `--type map`  
+  **Flexible schema** (case-insensitive keys):
+  - Preferred: `year,abbr,value`
+  - Also accepted: `year,state,abbr,median_income`
 
-### Pie (`--type pie`)
+> State codes should be USPS two-letter (`CA`, `TX`, `NY`, …).
 
-CSV columns:
+### Output
+- HTML files are written to `dist/` (e.g., `dist/pie.html`, `dist/bar.html`, `dist/map.html`).
+- Open them in any browser; no server needed.
 
-* `year` — e.g., `2024`
-* `category` — name
-* `amount` — number (e.g., billions USD)
-
-Example: `data/federal_revenue.csv`
+### Troubleshooting (Python)
+- **`FileNotFoundError: dist/...`** — Create the `dist/` folder or let `viz.py` create it.  
+- **Plotly not installed** — Ensure your conda env is active and `plotly` is installed.  
+- **Choropleth shows blank** — Check that `abbr` uses USPS codes and numeric values are valid.
 
 ---
 
-## Theme customization
+## Web UI: Next.js + Tailwind + Plotly
 
-* **Dark theme** (default in map/bar): `template="plotly_dark"` in the function.
-* **Light pastel theme** (pie): switch to
+A modern, **pastel**-styled frontend with animated charts and client-side CSV upload.
 
-  ```python
-  palette = px.colors.qualitative.Pastel
-  template="plotly_white"
-  paper_bgcolor="#ffffff"
-  plot_bgcolor="#ffffff"
-  font=dict(color="#222")
+### Requirements
+- **Node 20.x** (use `nvm use 20`)
+- **Next.js 14.2.31** (declared in `apps/web-next/package.json`)
+- macOS/Linux (Windows: WSL2 recommended)
+
+### Install & Run (Dev)
+```bash
+cd apps/web-next
+npm install
+npm run dev
+# open http://localhost:3000
+```
+If you want to run from the repo root, add a root `package.json` with scripts that proxy into `apps/web-next/`.
+
+### Pages & CSV Schemas
+- **/pie** — Animated donut.  
+  CSV: `year,category,amount`
+
+- **/bar** — Animated bar race.  
+  CSV: `time,category,value`  (needs multiple distinct `time` rows to animate)
+
+- **/map** — Animated US choropleth.  
+  Accepts either:
+  - `year,abbr,value` **or**
+  - `year,state,abbr,median_income`  
+  (Case-insensitive headers; extra columns are ignored. USPS 2-letter `abbr` required.)
+
+> Upload CSV using the **Choose File** button. The chart re-renders and the slider/play controls animate across frames (years/time).
+
+### Troubleshooting (Web)
+- **`Module not found: clsx / tailwind-merge`** — Our UI now avoids these deps; if you re-introduce a `cn` helper, install them: `npm i clsx tailwind-merge`.
+- **Plotly `_scrollZoom` or resize crash on /map** — We wrap Plotly with a stable height + `useResizeHandler`. If issues persist, restart dev:
+  ```bash
+  cd apps/web-next
+  rm -rf .next
+  npm run dev
   ```
-* You can adjust colors, fonts, and animation speed directly in the corresponding `build_*` function in `viz.py`.
+- **Next config error (`next.config.ts` not supported)** — Use `next.config.mjs` on Next 14.
+- **Node version mismatch** — Ensure `node -v` is 20.x (`nvm use 20`).
 
 ---
 
-## Command Reference
+## Project Structure
 
-```bash
-python viz.py --type map [--data path/to.csv] [--out path/to.html]
-python viz.py --type bar [--data path/to.csv] [--out path/to.html] [--top-n 8]
-python viz.py --type pie [--data path/to.csv] [--out path/to.html]
+```
+median_viz/
+├─ data/
+│  ├─ federal_revenue.csv
+│  ├─ bar_sample.csv
+│  └─ median_income_states.csv
+├─ dist/                     # Python outputs (HTML)
+├─ viz.py                    # Python CLI entry
+├─ environment.yml           # Conda environment
+├─ apps/
+│  └─ web-next/
+│     ├─ app/
+│     │  ├─ page.tsx        # Home
+│     │  ├─ pie/page.tsx
+│     │  ├─ bar/page.tsx
+│     │  └─ map/page.tsx
+│     ├─ components/
+│     │  ├─ ClientPlot.tsx
+│     │  ├─ CSVUpload.tsx
+│     │  └─ ui/
+│     │     ├─ button.tsx
+│     │     ├─ card.tsx
+│     │     ├─ input.tsx
+│     │     └─ label.tsx
+│     ├─ public/
+│     ├─ package.json
+│     └─ next.config.mjs
+└─ README.md
 ```
 
-If `--data` is not provided, defaults from the `data/` folder are used.
+---
+
+## Node / Python Versions
+
+- **Node**: 20.x (pinned via `.nvmrc` recommended)
+- **Python**: 3.11 (as used in `environment.yml`)
+- Make sure to **activate** the correct environment (`nvm use`, `conda activate`) before running respective apps.
+
+---
+
+## Security Notes
+- Keep **Next.js** patched in the `14.2.x` line to avoid known CVEs. If `npm audit` flags Next, bump it.
+- Lockfiles (`package-lock.json`) should be committed to keep deterministic installs.
 
 ---
 
 ## License
 
-MIT License — free to use and adapt.
+MIT License — free to use and adapt
