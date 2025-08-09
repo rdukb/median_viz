@@ -53,3 +53,12 @@ conda_env/
 .idea/
 *.sublime-project
 *.sublime-workspace
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+*.pyc
+.envrc
