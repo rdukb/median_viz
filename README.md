@@ -111,6 +111,8 @@ Default CSV files live under `data/`:
 
 A modern, **pastel**-styled frontend with animated charts and client-side CSV upload.
 
+> **Note:** Be sure to read the entire [Web guide](WEB_UI_GUIDE.md) for detailed instructions on setting up your Node environment and configuring the Web UI.
+
 ### Requirements
 - **Node 20.x** (use `nvm use 20`)
 - **Next.js 14.2.31** (declared in `apps/web-next/package.json`)
