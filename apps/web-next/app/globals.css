@@ -18,3 +18,140 @@ html, body {
 .card {
   @apply rounded-2xl shadow-soft border border-gray-100 bg-[var(--card)];
 }
+
+.studio-shell {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(198, 190, 255, 0.34), transparent 25rem),
+    radial-gradient(circle at 92% 8%, rgba(255, 205, 221, 0.3), transparent 24rem),
+    #f7f8fc;
+}
+
+.studio-topbar {
+  @apply sticky top-0 z-20 flex min-h-[68px] items-center justify-between gap-4 border-b border-white/80 bg-white/80 px-4 py-3 backdrop-blur-xl sm:px-6;
+}
+
+.studio-logo {
+  @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-sm font-black text-white shadow-lg shadow-indigo-200;
+}
+
+.prototype-pill {
+  @apply rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-700;
+}
+
+.studio-grid {
+  @apply mx-auto grid max-w-[1680px] grid-cols-1 gap-3 p-3 sm:p-4 xl:grid-cols-[240px_minmax(0,1fr)_292px] xl:items-start;
+}
+
+.studio-panel,
+.studio-canvas,
+.active-view-bar,
+.insight-card {
+  @apply rounded-[22px] border border-white/90 bg-white/90 shadow-[0_14px_45px_rgba(54,65,115,0.08)] backdrop-blur;
+}
+
+.studio-panel {
+  @apply p-4 sm:p-5 xl:sticky xl:top-[84px] xl:max-h-[calc(100vh-100px)] xl:overflow-y-auto;
+}
+
+.panel-eyebrow {
+  @apply text-[10px] font-extrabold uppercase tracking-[0.18em] text-slate-400;
+}
+
+.stat-tile {
+  @apply rounded-2xl border p-3;
+}
+
+.stat-lavender { @apply border-indigo-100 bg-indigo-50; }
+.stat-mint { @apply border-emerald-100 bg-emerald-50; }
+.stat-peach { @apply border-orange-100 bg-orange-50; }
+.stat-blue { @apply border-sky-100 bg-sky-50; }
+
+.field-chip {
+  @apply rounded-lg border border-slate-100 bg-slate-50 px-2 py-1 text-[11px] font-medium text-slate-600;
+}
+
+.active-view-bar {
+  @apply flex min-h-[64px] items-center justify-between gap-4 px-4 py-3 sm:px-5;
+}
+
+.studio-canvas {
+  @apply min-w-0 overflow-hidden;
+}
+
+.studio-plot {
+  @apply min-w-0 px-1 sm:px-3;
+}
+
+.chart-choice {
+  @apply flex h-16 flex-col items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-[10px] font-semibold capitalize text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50;
+}
+
+.chart-choice span {
+  @apply text-lg leading-none;
+}
+
+.chart-choice-active {
+  @apply border-indigo-300 bg-indigo-50 text-indigo-700 ring-2 ring-indigo-100;
+}
+
+.animation-button {
+  @apply rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50;
+}
+
+.animation-button-active {
+  @apply border-indigo-200 bg-indigo-50 text-indigo-700;
+}
+
+.play-button {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white shadow-md shadow-indigo-200;
+}
+
+.insight-card {
+  @apply flex gap-3 border-pink-100 bg-gradient-to-r from-pink-50 to-orange-50 p-4;
+}
+
+.insight-icon {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-lg font-bold text-pink-500 shadow-sm;
+}
+
+.agent-demo-card {
+  @apply rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-purple-50 p-4;
+}
+
+.agent-run-button {
+  @apply mt-2.5 h-10 w-full rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white shadow-lg shadow-slate-200 transition hover:-translate-y-0.5 hover:bg-indigo-700;
+}
+
+.activity-rail {
+  @apply relative space-y-4;
+}
+
+.activity-rail::before {
+  content: '';
+  @apply absolute bottom-2 left-[5px] top-2 w-px bg-slate-200;
+}
+
+.activity-item {
+  @apply relative grid grid-cols-[12px_1fr] gap-3;
+}
+
+.activity-dot {
+  @apply relative z-10 mt-1.5 h-3 w-3 rounded-full border-2 border-white bg-slate-300 ring-1 ring-slate-200;
+}
+
+.activity-dot-active {
+  @apply bg-indigo-500 ring-4 ring-indigo-100;
+}
+
+@media (max-width: 639px) {
+  .studio-topbar {
+    position: relative;
+  }
+
+  .studio-panel,
+  .studio-canvas,
+  .active-view-bar,
+  .insight-card {
+    border-radius: 18px;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "allowJs": false,
+    "outDir": ".test-dist",
+    "rootDir": ".",
+    "plugins": []
+  },
+  "include": [
+    "lib/dataset/**/*.ts",
+    "lib/analysis/**/*.ts",
+    "lib/workspace/**/*.ts",
+    "lib/visualization/**/*.ts",
+    "lib/webmcp/**/*.ts",
+    "evals/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
+}

@@ -55,6 +55,8 @@ conda_env/
 *.sublime-workspace
 node_modules/
 .next/
+.test-dist/
+.vercel/
 out/
 *.tsbuildinfo
 .env

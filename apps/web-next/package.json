@@ -2,11 +2,19 @@
   "name": "web-next",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/privacy-scan.mjs source && next build && node scripts/privacy-scan.mjs build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node scripts/privacy-scan.mjs source && tsc -p tsconfig.tests.json && node --test .test-dist/tests/*.test.js",
+    "eval:webmcp": "tsc -p tsconfig.tests.json && node .test-dist/evals/webmcp-eval-runner.js",
+    "preflight:deployment": "npm test && npm run eval:webmcp && npm run build && node scripts/deployment-preflight.mjs --strict",
+    "preflight:deployment:report": "node scripts/deployment-preflight.mjs",
+    "smoke:deployment": "node scripts/deployment-smoke.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
