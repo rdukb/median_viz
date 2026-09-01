@@ -33,7 +33,7 @@ The three identity layers are distinct and must never share an ambiguous `campai
 
 | Layer | Canonical fields | Meaning |
 |---|---|---|
-| Product Campaign | `productCampaignId`, `productCampaignName` | AMADS product grouping that can contain Product Ad Sets |
+| Product Campaign | `productCampaignId`, `productCampaignName` | Growth Leaders product grouping that can contain Product Ad Sets |
 | Product Ad Set | `productAdSetId`, `productAdSetName` | Analytical product subject shown in the Studio |
 | LinkedIn source Campaign | `linkedinSourceCampaignUrn` | LinkedIn `sponsoredCampaign` source identity, read at analytics reporting level `CAMPAIGN`, mapped to one Product Ad Set |
 

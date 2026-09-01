@@ -73,9 +73,9 @@ function scan(files, { forbidPersistence = false, requireCanonicalTokens = false
     ) {
       throw new Error(`Browser-persisted demo state is not allowed in ${relative(appRoot, file)}.`)
     }
-    privateTerms.forEach((term, index) => {
+    privateTerms.forEach((term) => {
       if (content.toLocaleLowerCase().includes(term.toLocaleLowerCase())) {
-        throw new Error(`External private privacy term ${index + 1} found in ${relative(appRoot, file)}.`)
+        throw new Error(`External private privacy denylist match found in ${relative(appRoot, file)}.`)
       }
     })
   }

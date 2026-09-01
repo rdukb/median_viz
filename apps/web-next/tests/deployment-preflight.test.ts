@@ -40,7 +40,7 @@ test('Vercel configuration uses the guarded build and Node 22', () => {
   assert.match(packageJson.scripts.build, /privacy-scan\.mjs build/)
   assert.equal(vercel.framework, 'nextjs')
   assert.equal(vercel.buildCommand, 'npm run build')
-  assert.equal(vercel.public, false)
+  assert.equal('public' in vercel, false)
   assert.match(readFileSync('../../.gitignore', 'utf8'), /^\.vercel\/$/m)
 })
 

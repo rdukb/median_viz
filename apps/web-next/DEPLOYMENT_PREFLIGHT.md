@@ -50,10 +50,9 @@ The proposed Vercel project must use:
 - Install: lockfile-detected npm install;
 - Build Command: `npm run build`;
 - Output: Next.js-managed `.next` output;
-- source/log public view: disabled;
 - preview before production promotion.
 
-The root directory is a Vercel project setting for monorepos; it has not been created or changed here. `vercel.json` freezes the app-local framework and guarded build command. See Vercel's [monorepo root-directory guidance](https://vercel.com/docs/builds/configure-a-build) and [supported Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions).
+The root directory is a Vercel project setting for monorepos; it has not been created or changed here. `vercel.json` freezes the app-local framework and guarded build command. Source and deployment-log visibility remain Vercel project settings and are not represented by an app-local `vercel.json` property. See Vercel's [monorepo root-directory guidance](https://vercel.com/docs/builds/configure-a-build) and [supported Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions).
 
 ## Privacy gate
 

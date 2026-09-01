@@ -54,10 +54,10 @@ try {
 
   const vercel = readJson('vercel.json')
   add(
-    vercel.framework === 'nextjs' && vercel.buildCommand === 'npm run build' && vercel.public === false
+    vercel.framework === 'nextjs' && vercel.buildCommand === 'npm run build'
       ? 'PASS' : 'FAIL',
     'vercel-config',
-    'vercel.json selects Next.js, the guarded build command, and private source/log views.'
+    'vercel.json selects Next.js and the guarded build command.'
   )
 
   const nextConfig = read('next.config.mjs')
