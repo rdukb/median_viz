@@ -16,6 +16,9 @@ const expectedTools = [
   'set_animation',
   'reset_view',
 ]
+const reviewedLocalOnlyStatusEntries = new Set([
+  '?? apps/web-next/ecosystem.config.js',
+])
 
 const checks = []
 const add = (status, id, message) => checks.push({ status, id, message })
@@ -138,11 +141,16 @@ add(
 
 try {
   const deployScopeStatus = git(['status', '--porcelain=v1', '--untracked-files=all', '--', 'apps/web-next'])
+  const blockingDeployScopeEntries = deployScopeStatus
+    .split('\n')
+    .filter(Boolean)
+    .filter((entry) => !reviewedLocalOnlyStatusEntries.has(entry))
+  const deployScopeIsClean = blockingDeployScopeEntries.length === 0
   add(
-    deployScopeStatus === '' ? 'PASS' : 'BLOCKED',
+    deployScopeIsClean ? 'PASS' : 'BLOCKED',
     'immutable-source-binding',
-    deployScopeStatus === ''
-      ? `Deployable app files are clean at commit ${git(['rev-parse', 'HEAD']).slice(0, 12)}.`
+    deployScopeIsClean
+      ? `Deployable app files are clean at commit ${git(['rev-parse', 'HEAD']).slice(0, 12)}; reviewed local-only files are excluded.`
       : 'Deployable app changes are not committed; a hosted build cannot be bound to the verified local source yet.'
   )
 } catch (error) {

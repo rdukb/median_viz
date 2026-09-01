@@ -111,7 +111,7 @@ The deployment packet must record:
 - privacy-secret presence by name only;
 - smoke-test result.
 
-The current worktree is dirty and contains uncommitted application files, so no hosted build can yet be claimed as the reviewed source.
+The source-binding check remains conservative for tracked and untracked files under `apps/web-next`. The reviewed local process-manager file `apps/web-next/ecosystem.config.js` is the sole explicit exception because it is not a Git or Vercel deployment input; any other uncommitted app file blocks the gate.
 
 ## Rollback contract
 

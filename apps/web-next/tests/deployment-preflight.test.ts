@@ -54,3 +54,10 @@ test('deployment preflight remains non-deploying and approval gated', () => {
   assert.match(contract, /production promotion;/)
   assert.match(contract, /requires a separate approval/i)
 })
+
+test('source binding excludes only the reviewed local process-manager file', () => {
+  const preflight = readFileSync('scripts/deployment-preflight.mjs', 'utf8')
+  assert.match(preflight, /--untracked-files=all/)
+  assert.match(preflight, /\?\? apps\/web-next\/ecosystem\.config\.js/)
+  assert.doesNotMatch(preflight, /--untracked-files=no/)
+})
