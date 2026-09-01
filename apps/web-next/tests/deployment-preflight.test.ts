@@ -48,11 +48,16 @@ test('deployment preflight remains non-deploying and approval gated', () => {
   const preflight = readFileSync('scripts/deployment-preflight.mjs', 'utf8')
   const smoke = readFileSync('scripts/deployment-smoke.mjs', 'utf8')
   const contract = readFileSync('DEPLOYMENT_PREFLIGHT.md', 'utf8')
+  const legacyBase64Name = ['PUBLIC', 'DEMO', 'PRIVATE', 'DENYLIST', 'BASE64'].join('_')
   assert.doesNotMatch(preflight, /vercel\s+(?:deploy|link|promote|rollback)/)
   assert.doesNotMatch(smoke, /vercel\s+(?:deploy|link|promote|rollback)/)
   assert.match(contract, /preview deployment;/)
   assert.match(contract, /production promotion;/)
   assert.match(contract, /requires a separate approval/i)
+  assert.match(preflight, /DEMO_PRIVATE_DENYLIST_BASE64/)
+  assert.match(smoke, /DEMO_PRIVATE_DENYLIST_BASE64/)
+  assert.equal(preflight.includes(legacyBase64Name), false)
+  assert.equal(smoke.includes(legacyBase64Name), false)
 })
 
 test('source binding excludes only the reviewed local process-manager file', () => {

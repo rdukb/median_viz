@@ -261,7 +261,7 @@ The CSV adapter fails closed unless:
 - anonymization occurred before repository write;
 - status-only metrics remain null.
 
-`npm test` scans source inputs before running tests. `npm run build` scans source before compilation and generated `.next` output afterward. Both reject non-canonical demo identity tokens and browser-persisted Studio state. CI can additionally set `PUBLIC_DEMO_PRIVATE_DENYLIST_PATH` to a newline-delimited file outside the repository. Vercel can provide the same newline-delimited content as a base64-encoded secret in `PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64`. This keeps sensitive customer knowledge out of public source while scanning both source and generated artifacts.
+`npm test` scans source inputs before running tests. `npm run build` scans source before compilation and generated `.next` output afterward. Both reject non-canonical demo identity tokens and browser-persisted Studio state. CI can additionally set `PUBLIC_DEMO_PRIVATE_DENYLIST_PATH` to a newline-delimited file outside the repository. Vercel can provide the same newline-delimited content as a base64-encoded secret in `DEMO_PRIVATE_DENYLIST_BASE64`. This keeps sensitive customer knowledge out of public source while scanning both source and generated artifacts.
 
 The deterministic TypeScript fixture remains available for unit tests and local fallback validation. It uses the same fictional identities and contains no real client, account, Campaign, Ad Set, or source Campaign identifiers.
 

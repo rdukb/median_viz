@@ -39,7 +39,7 @@ checks.push({
   message: 'Hosted /studio contains the representative-demo disclosure.',
 })
 
-const encodedDenylist = process.env.PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64
+const encodedDenylist = process.env.DEMO_PRIVATE_DENYLIST_BASE64
 if (encodedDenylist) {
   const terms = Buffer.from(encodedDenylist, 'base64').toString('utf8')
     .split(/\r?\n/)
@@ -57,7 +57,7 @@ if (encodedDenylist) {
   checks.push({
     status: 'BLOCKED',
     id: 'hosted-private-denylist',
-    message: 'Set PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64 before hosted smoke verification.',
+    message: 'Set DEMO_PRIVATE_DENYLIST_BASE64 before hosted smoke verification.',
   })
 }
 

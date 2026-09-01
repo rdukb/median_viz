@@ -59,7 +59,7 @@ The root directory is a Vercel project setting for monorepos; it has not been cr
 Preview and production builds must provide one private, deployment-environment value:
 
 ```text
-PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64
+DEMO_PRIVATE_DENYLIST_BASE64
 ```
 
 The decoded content is a newline-delimited private term list. It must remain in a Vercel Sensitive Environment Variable or equivalent secret store, never in Git, fixture metadata, build logs, or generated artifacts.
@@ -80,7 +80,7 @@ Required invariant:
 After separate approval creates a preview, run:
 
 ```bash
-PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64=... \
+DEMO_PRIVATE_DENYLIST_BASE64=... \
   npm run smoke:deployment -- https://<preview-url>
 ```
 

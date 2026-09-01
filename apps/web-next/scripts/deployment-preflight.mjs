@@ -128,7 +128,7 @@ add(
 )
 
 const privateDenylist = Boolean(
-  process.env.PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64 ||
+  process.env.DEMO_PRIVATE_DENYLIST_BASE64 ||
   process.env.PUBLIC_DEMO_PRIVATE_DENYLIST_PATH
 )
 add(
@@ -136,7 +136,7 @@ add(
   'private-privacy-denylist',
   privateDenylist
     ? 'A private privacy denylist is present without reading or printing its value.'
-    : 'PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64 or an external denylist path is required for preview and production builds.'
+    : 'DEMO_PRIVATE_DENYLIST_BASE64 or an external denylist path is required for preview and production builds.'
 )
 
 try {

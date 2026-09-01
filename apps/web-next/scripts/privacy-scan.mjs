@@ -36,7 +36,7 @@ function collectFiles(root, excludeGenerated = false) {
 
 function externalPrivacyTerms() {
   const configuredPath = process.env.PUBLIC_DEMO_PRIVATE_DENYLIST_PATH
-  const configuredBase64 = process.env.PUBLIC_DEMO_PRIVATE_DENYLIST_BASE64
+  const configuredBase64 = process.env.DEMO_PRIVATE_DENYLIST_BASE64
   if (configuredPath && configuredBase64) {
     throw new Error('Configure only one private privacy denylist source.')
   }
