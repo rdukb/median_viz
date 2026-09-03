@@ -1,10 +1,10 @@
-# Frozen Studio prototype interaction and data contract
+# Frozen Studio interaction and data contract
 
 ## Milestone boundary
 
-`/studio` is a non-production executable wireframe for validating a shared human/agent LinkedIn demographic exploration. The behavioral contract is frozen, and the approved Slice 1 shared-workspace architecture now implements it.
+`/studio` began as an executable wireframe for validating shared human/agent LinkedIn demographic exploration and is now the production-hosted WebMCP Challenge demo. Its behavioral and data contracts remain frozen; production hosting does not turn the representative fixture into real customer or live delivery data.
 
-The active fixture is deterministic, representative demo data that conforms to the approved August 8–21 export contract; it is not an export of staging delivery and does not represent real customer performance. Public artifacts use only the fictional Northstar Media identity. Slice 3 registers three browser-only read tools; Slice 4 adds exactly four guarded workspace-mutation tools; Slice 5 evaluates the frozen seven-tool interaction surface. The prototype connects to no backend or Cloud SQL database.
+The active fixture is deterministic, representative demo data that conforms to the approved August 8–21 export contract; it is not an export of staging delivery and does not represent real customer performance. Public artifacts use only the fictional Northstar Media identity. Slice 3 registers three browser-only read tools; Slice 4 adds exactly four guarded workspace-mutation tools; Slice 5 evaluates the frozen seven-tool interaction surface. The Studio connects to no backend or Cloud SQL database.
 
 Current public disclosure:
 
@@ -116,7 +116,7 @@ Pivots are mutually independent. A row and an analytical query carry exactly one
 
 ## Analytical capability contract
 
-All human and simulated agent views execute through one capability:
+All human and agent-driven views execute through one capability:
 
 ```ts
 type AnalyticalQuery = {
@@ -185,7 +185,7 @@ The client-side reducer stores:
 - deterministic highlight state;
 - workspace revision and visible Agent Activity.
 
-Human controls and simulated agent actions dispatch the same command shape:
+Human controls and agent-authored operations dispatch the same command shape:
 
 ```ts
 {
@@ -217,7 +217,7 @@ Studio React controls
 
 - `lib/dataset/` owns canonical identities, dimensions, evidence semantics, the staging-export shape, fixture generation, and adaptation.
 - `lib/analysis/` owns validation, filtering, pivot isolation, additive aggregation, derived metrics, comparison grouping, ordered time results, quality, and metric availability. It imports no React, Plotly, or WebMCP code.
-- `lib/workspace/` owns nested workspace state, the reducer, selectors, and semantic capabilities. Human controls and demo agent operations use this same capability surface.
+- `lib/workspace/` owns nested workspace state, the reducer, selectors, and semantic capabilities. Human controls and WebMCP agent operations use this same capability surface.
 - `lib/visualization/` owns chart compatibility and converts successful analytical results into Plotly view models. Plotly state is never canonical workspace state.
 - `components/studio/StudioWorkspaceProvider.tsx` binds the pure store and analysis layers to React Context and `useReducer`.
 
@@ -235,7 +235,7 @@ Canonical workspace state is grouped into used responsibilities:
 }
 ```
 
-`animation.currentFrame` is workspace state. `workspace.getState()` and the semantic capabilities form the WebMCP seam. Slice 1 introduced the seam without registration; Slice 3 attaches only the approved read-only tools.
+`animation.currentFrame` is workspace state. `workspace.getState()` and the semantic capabilities form the WebMCP seam. Slice 1 introduced the seam, Slice 3 attached the approved read tools, and Slice 4 added guarded mutation adapters through the same capabilities.
 
 ## Slice 2 fixture boundary
 
@@ -310,9 +310,11 @@ Run `npm run eval:webmcp`. Live natural-language routing and the 2–3 minute de
 
 ## Slice 6 deployment preflight boundary
 
-The current fixture provenance is `representative_demo`. `DEPLOYMENT_PREFLIGHT.md` defines the proposed Vercel root, Node/build configuration, private privacy-denylist gate, immutable source binding, preview-only smoke checks, hosted WebMCP verification, rollback evidence, and approval boundary. No Vercel project, environment variable, deployment, domain, or production routing is created or changed by the preflight.
+The current fixture provenance is `representative_demo`. `DEPLOYMENT_PREFLIGHT.md` defines the Vercel root, Node/build configuration, private privacy-denylist gate, immutable source binding, hosted smoke checks, WebMCP verification, rollback evidence, and approval boundary. The preflight scripts inspect readiness but do not themselves create or change projects, secrets, deployments, domains, or production routing.
 
-## Demo agent actions
+## Demo action fallback
+
+The small on-page demo action control is a deterministic fallback for showing the shared capability model without an agent-enabled browser. It is not an additional WebMCP tool. In the challenge workflow, browser agents use the seven registered semantic tools directly.
 
 - **Switch to seniority** replaces the active pivot; it does not add Seniority as a second axis.
 - **Compare Product Ad Sets** groups the current pivot by Product Ad Set.
@@ -321,14 +323,14 @@ The current fixture provenance is `representative_demo`. `DEPLOYMENT_PREFLIGHT.m
 - **Highlight the highest CPA value** ranks available values only inside the active pivot.
 - **Reset the exploration** restores the default Job Function view without unloading the fixture.
 
-## Explicit non-production boundaries
+## Product and data boundaries
 
 - No Cloud SQL or hosted staging query
 - No claim that fixture metric values are real delivery
 - Exactly three read and four guarded workspace-mutation WebMCP tools; no dataset writes or remote MCP server
 - No backend, API routes, authentication, or multi-user collaboration
 - No persistence, sharing, export, or durable history
-- No LLM call; agent actions and findings are deterministic presets
+- No embedded LLM call; the fallback demo actions are deterministic presets while external browser agents use WebMCP
 - No production-scale data engine or performance claim
 - No change to `/pie`, `/bar`, or `/map`
 
@@ -339,7 +341,7 @@ The current fixture provenance is `representative_demo`. `DEPLOYMENT_PREFLIGHT.m
 - `daily_provisional_directional`, privacy adjustment, status-only evidence, and unresolved labels are preserved in the canonical dataset contract.
 - The capability rejects any analytical query that does not request exactly one demographic pivot.
 - Only None, Product Ad Set, Product Campaign, and Time are offered as comparisons.
-- Human and simulated agent actions update the same visible state and Agent Activity.
+- Human controls and agent operations update the same visible state and Agent Activity.
 - Existing visualization routes remain available.
 
-This milestone stops after Slice 1 shared-workspace architecture. WebMCP, backend, Cloud SQL, hosted fixture replacement, and deployment each require separate approval.
+The frozen challenge candidate includes the shared workspace, seven WebMCP tools, deterministic evaluations, privacy gates, and production deployment. Backend persistence, Cloud SQL, real staging-data import, and additional capabilities remain explicitly out of scope.

@@ -28,6 +28,8 @@ The complete intent matrix is in `webmcp-scenarios.ts`. The runner invokes the a
 
 Natural-language routing must be tested in ChatGPT's built-in browser. The Slice 5 approval records a passed manual baseline for configuration, filter refinement, incremental refinement, time animation, invalid intersections, unsupported dimensions/metrics, metric availability, and reset behavior.
 
+The submission-freeze production pass at [https://median-viz.vercel.app/studio](https://median-viz.vercel.app/studio) confirmed all seven tools, shared human/agent state, Agent Activity, origin isolation, and a clean browser console.
+
 Use this checklist for the new evaluation boundary:
 
 | Prompt | Expected minimal routing | Observe |
@@ -86,11 +88,10 @@ Use normal collaborative prompts; do not say tool names aloud.
 8. **Recover:** “Use Job Function and compare the Ad Sets instead.”
 9. **Reverse:** “Start over.”
 
-## Remaining live-only questions
+## Remaining live-only model-behavior questions
 
 - Does ChatGPT consistently choose the minimal partial mutation for every ambiguous wording variant?
 - Does it explain a stale revision before re-reading and retrying without unnecessary extra tools?
 - Does it suggest Region, rather than infer State, for the California request?
-- Does public hosting expose WebMCP with the same origin isolation and privacy configuration as local verification?
 
-These require live ChatGPT or deployment-specific evidence and are not claimed by the local runner.
+These language-model behaviors require live ChatGPT evidence and are not claimed by the deterministic local runner. Public hosting and WebMCP registration are verified independently by the hosted smoke/browser gate.

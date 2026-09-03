@@ -1,208 +1,197 @@
-# Median Income & Revenue Visualizations
+# Median Viz
 
-Interactive data visualizations with **two runtimes**:
+Median Viz is a collaborative visual analytics workspace where people and browser agents inspect and change the same live analytical state through WebMCP. It turns representative LinkedIn B2B audience-performance data into guarded, explainable views without exposing renderer internals or raw dataset rows.
 
-- **Python CLI (Plotly Express)** — quick scripts to produce shareable HTML: choropleth map, bar, pie.
-- **Next.js + Tailwind (Plotly.js)** — modern, pastel UI with animated charts and CSV upload.
+[**Live Studio**](https://median-viz.vercel.app/studio) · [**Demo video**](https://youtu.be/bZnqu3Oarfs) · [**WebMCP Challenge**](https://webmcp.devpost.com/) · [**MIT License**](LICENSE)
 
----
+**Tech stack:** Next.js 14 · React 18 · TypeScript · Plotly · WebMCP (`document.modelContext`) · Vercel
 
-## Table of Contents
-- [Quick Start](#quick-start)
-- [Python CLI (Plotly Express)](#python-cli-plotly-express)
-  - [Environment Setup](#environment-setup)
-  - [Commands](#commands)
-  - [Input Data & Schemas](#input-data--schemas)
-  - [Output](#output)
-  - [Troubleshooting (Python)](#troubleshooting-python)
-- [Web UI: Next.js + Tailwind + Plotly](#web-ui-nextjs--tailwind--plotly)
-  - [Requirements](#requirements)
-  - [Install & Run (Dev)](#install--run-dev)
-  - [Pages & CSV Schemas](#pages--csv-schemas)
-  - [Troubleshooting (Web)](#troubleshooting-web)
-- [Project Structure](#project-structure)
-- [Node / Python Versions](#node--python-versions)
-- [Security Notes](#security-notes)
-- [License](#license)
+> **Demo dataset — representative LinkedIn B2B audience performance data**
 
----
+The public demo uses only fictional Northstar Media identities. It is not live production data and does not represent a real customer's performance.
 
-## Quick Start
+## What it does
 
-### Python (one-liners)
+```text
+Inspect the dataset
+→ choose a metric and one B2B audience dimension
+→ filter or compare Product Campaigns and Product Ad Sets
+→ animate the view over time
+→ let an agent read or refine the same visible workspace
+```
+
+Human controls and agent calls are deliberately interleavable. A person can select a Product Campaign, an agent can refine the metric or pivot, and both immediately see the same revisioned state. Successful agent mutations appear in the Agent Activity rail.
+
+## Why WebMCP
+
+WebMCP lets the page expose domain-level capabilities instead of asking an agent to infer intent from DOM structure or manipulate Plotly directly.
+
+- Human controls and WebMCP tools call the same workspace capability layer.
+- Read tools describe the current dataset, workspace, and bounded result summary.
+- Mutation tools accept strict, bounded inputs and use optimistic revision checks.
+- Unsupported demographic intersections fail closed without creating invalid UI state.
+- Agent mutations are visible and attributable in Agent Activity.
+- Plotly remains a derived visualization adapter, never the canonical state.
+
+## WebMCP tools
+
+The hosted Studio registers exactly seven browser tools.
+
+### Read-only
+
+| Tool | Purpose |
+|---|---|
+| `inspect_dataset` | Returns supported pivots, comparisons, metrics, dates, quality semantics, and constraints without raw rows. |
+| `get_workspace_state` | Returns the current revision, selections, filters, chart, animation frame, metric availability, and warnings. |
+| `get_current_result_summary` | Returns aggregate-safe totals and a deterministic bounded top/bottom segment summary. |
+
+### Guarded mutations
+
+| Tool | Purpose |
+|---|---|
+| `configure_analysis` | Updates supplied metric, single demographic pivot, comparison, or compatible visualization fields. |
+| `apply_filters` | Replaces supplied Product Campaign, Product Ad Set, or date-range filters using canonical values. |
+| `set_animation` | Enables, pauses, or positions the supported day-by-day time view. |
+| `reset_view` | Resets analytical, filter, visualization, and animation state while preserving the dataset. |
+
+All four mutation tools call semantic workspace capabilities. They do not access reducer internals, write dataset rows, or control Plotly directly.
+
+## Example interactions
+
+- “What can I break this audience down by?”
+- “Show CPC by Industry across Product Ad Sets.”
+- “Limit this to Growth Leaders.”
+- “Which industries have the highest CPC now?”
+- “Show how this changed day by day.”
+- “Compare Job Function with Seniority.”
+
+The final request is intentionally rejected with `unsupported_demographic_intersection`. LinkedIn demographic pivots are independently reported, so Job Function and Seniority cannot be crossed in one analytical query.
+
+## Demo dataset
+
+The representative fixture covers August 8–21, 2026 and preserves the shape and quality semantics expected by the canonical adapter. It contains two fictional Product Campaigns, three fictional Product Ad Sets, and nine independently reported demographic pivots:
+
+- Job Function
+- Seniority
+- Job Title
+- Company
+- Company Size
+- Industry
+- Country
+- Region
+- County
+
+Exactly one demographic pivot is valid per analytical query. It may be grouped by Product Ad Set, Product Campaign, or time, but never aggregated across another demographic pivot.
+
+The fixture preserves status-only evidence, unresolved labels, nullable metrics, privacy-adjusted semantics, and the `daily_provisional_directional` quality designation. It contains no real customer identity and is not connected to Cloud SQL or a backend service.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    H[Human controls] --> C[Workspace capabilities]
+    W[WebMCP tools] --> C
+    C --> S[React Context + reducer state]
+    C --> A[Analysis engine]
+    A --> V[Visualization adapter]
+    V --> P[Plotly]
+    C --> R[Revision + Agent Activity]
+```
+
+- **Canonical state:** React Context and a reducer hold selections, filters, visualization, animation frame, and revision.
+- **Capability boundary:** human controls and WebMCP mutations share validation and transition logic.
+- **Analysis engine:** filters and aggregates canonical rows before calculating derived metrics.
+- **Visualization adapter:** converts valid results into Plotly traces and layout.
+- **Concurrency:** `expectedRevision` makes stale agent writes fail closed.
+- **Privacy:** canonical identity validation and source/generated-output scans prevent public-demo leakage.
+
+## Correctness and safety
+
+Derived metrics are calculated from aggregate raw measures:
+
+- CTR = `sum(clicks) / sum(impressions)`
+- CPC = `sum(spend) / sum(clicks)`
+- CPM = `sum(spend) × 1000 / sum(impressions)`
+- CVR = `sum(conversions) / sum(clicks)`
+- CPA = `sum(spend) / sum(conversions)`
+
+Supported and available are separate states. For example, CPA and CVR are supported but remain unavailable and `null` when no conversions exist; missing, suppressed, or status-only evidence never becomes zero.
+
+Additional safeguards:
+
+- exactly one demographic pivot per analytical query;
+- strict tool schemas and canonical demo-safe filter values;
+- stale revisions and invalid visualization combinations fail without mutation;
+- public identity allowlisting plus an external private-denylist build gate;
+- no browser-persisted demo identity or workspace state;
+- no raw fixture rows, source Campaign identifiers, or Plotly internals in WebMCP output;
+- duplicate tool registration is lifecycle-safe.
+
+## Run locally
+
+Requirements: Node.js 22.x and npm.
+
 ```bash
-# create conda env (first time)
+git clone https://github.com/rdukb/median_viz.git
+cd median_viz
+nvm use
+cd apps/web-next
+npm ci
+npm run dev
+```
+
+Open `http://localhost:3000/studio`.
+
+Run the verification suite from `apps/web-next`:
+
+```bash
+npm test
+npm run eval:webmcp
+npm run build
+```
+
+Submission-freeze verification: **56 tests passed**, **12 WebMCP scenarios passed**, and the production build completed with source and generated-output privacy scans.
+
+The primary route is `/studio`. The original `/pie`, `/bar`, and `/map` routes remain available as legacy chart-gallery examples.
+
+## Deployment
+
+The Studio is deployed on Vercel at [median-viz.vercel.app/studio](https://median-viz.vercel.app/studio). The deployable app root is `apps/web-next`, the runtime is Node.js 22.x, and the guarded production build runs both source and generated-output privacy validation.
+
+Private denylist values and local filesystem paths are never committed or documented. See the [deployment preflight and rollback contract](apps/web-next/DEPLOYMENT_PREFLIGHT.md).
+
+## Original Python Plotly CLI
+
+The repository began as a small Python Plotly visualization CLI. It remains available for generating standalone HTML chart artifacts and is separate from Studio/WebMCP.
+
+```bash
 conda env create -f environment.yml
 conda activate median_viz
 
-# generate visualizations
 python viz.py --type pie
-python viz.py --type bar
+python viz.py --type bar --top-n 10
 python viz.py --type map
 ```
 
-### Web UI
-```bash
-# from repo root
-cd apps/web-next
-npm install
-npm run dev
-# http://localhost:3000  (see /pie, /bar, /map)
-```
+Supported options:
 
----
+| Option | Meaning |
+|---|---|
+| `--type map\|bar\|pie` | Required visualization type. |
+| `--data PATH` | Optional input CSV override. |
+| `--out PATH` | Optional output HTML path. |
+| `--top-n NUMBER` | Bar-race item limit; defaults to 8. |
 
-## Python CLI (Plotly Express)
+Default data files live under `data/`, and generated HTML is written under `dist/`.
 
-The Python side is ideal for **static artifacts** you can publish or email as `.html`.
+## Documentation
 
-### Environment Setup
-```bash
-# If you don't have the env yet
-conda env create -f environment.yml
-conda activate median_viz
-
-# Or, create manually:
-conda create -n median_viz python=3.11 -y
-conda activate median_viz
-pip install -r requirements.txt   # if you have one
-```
-
-### Commands
-```bash
-# All outputs go to dist/ (HTML). If it doesn't exist, it's created.
-python viz.py --type pie    # Federal revenue donut (animated by year)
-python viz.py --type bar    # Bar chart example
-python viz.py --type map    # US choropleth (animated by year)
-```
-
-Options:
-- `--out PATH` — override output path (defaults inside `dist/`).
-- `--csv PATH` — use your own CSV instead of the included sample.
-
-### Input Data & Schemas
-
-Default CSV files live under `data/`:
-- `federal_revenue.csv` — for `--type pie`  
-  Schema: `year,category,amount`
-
-- `bar_sample.csv` — for `--type bar`  
-  Schema: `time,category,value` (e.g., `2024-01`)
-
-- `median_income_states.csv` — for `--type map`  
-  **Flexible schema** (case-insensitive keys):
-  - Preferred: `year,abbr,value`
-  - Also accepted: `year,state,abbr,median_income`
-
-> State codes should be USPS two-letter (`CA`, `TX`, `NY`, …).
-
-### Output
-- HTML files are written to `dist/` (e.g., `dist/pie.html`, `dist/bar.html`, `dist/map.html`).
-- Open them in any browser; no server needed.
-
-### Troubleshooting (Python)
-- **`FileNotFoundError: dist/...`** — Create the `dist/` folder or let `viz.py` create it.  
-- **Plotly not installed** — Ensure your conda env is active and `plotly` is installed.  
-- **Choropleth shows blank** — Check that `abbr` uses USPS codes and numeric values are valid.
-
----
-
-## Web UI: Next.js + Tailwind + Plotly
-
-A modern, **pastel**-styled frontend with animated charts and client-side CSV upload.
-
-> **Note:** Be sure to read the entire [Web guide](WEB_UI_GUIDE.md) for detailed instructions on setting up your Node environment and configuring the Web UI.
-
-### Requirements
-- **Node 20.x** (use `nvm use 20`)
-- **Next.js 14.2.31** (declared in `apps/web-next/package.json`)
-- macOS/Linux (Windows: WSL2 recommended)
-
-### Install & Run (Dev)
-```bash
-cd apps/web-next
-npm install
-npm run dev
-# open http://localhost:3000
-```
-If you want to run from the repo root, add a root `package.json` with scripts that proxy into `apps/web-next/`.
-
-### Pages & CSV Schemas
-- **/pie** — Animated donut.  
-  CSV: `year,category,amount`
-
-- **/bar** — Animated bar race.  
-  CSV: `time,category,value`  (needs multiple distinct `time` rows to animate)
-
-- **/map** — Animated US choropleth.  
-  Accepts either:
-  - `year,abbr,value` **or**
-  - `year,state,abbr,median_income`  
-  (Case-insensitive headers; extra columns are ignored. USPS 2-letter `abbr` required.)
-
-> Upload CSV using the **Choose File** button. The chart re-renders and the slider/play controls animate across frames (years/time).
-
-### Troubleshooting (Web)
-- **`Module not found: clsx / tailwind-merge`** — Our UI now avoids these deps; if you re-introduce a `cn` helper, install them: `npm i clsx tailwind-merge`.
-- **Plotly `_scrollZoom` or resize crash on /map** — We wrap Plotly with a stable height + `useResizeHandler`. If issues persist, restart dev:
-  ```bash
-  cd apps/web-next
-  rm -rf .next
-  npm run dev
-  ```
-- **Next config error (`next.config.ts` not supported)** — Use `next.config.mjs` on Next 14.
-- **Node version mismatch** — Ensure `node -v` is 20.x (`nvm use 20`).
-
----
-
-## Project Structure
-
-```
-median_viz/
-├─ data/
-│  ├─ federal_revenue.csv
-│  ├─ bar_sample.csv
-│  └─ median_income_states.csv
-├─ dist/                     # Python outputs (HTML)
-├─ viz.py                    # Python CLI entry
-├─ environment.yml           # Conda environment
-├─ apps/
-│  └─ web-next/
-│     ├─ app/
-│     │  ├─ page.tsx        # Home
-│     │  ├─ pie/page.tsx
-│     │  ├─ bar/page.tsx
-│     │  └─ map/page.tsx
-│     ├─ components/
-│     │  ├─ ClientPlot.tsx
-│     │  ├─ CSVUpload.tsx
-│     │  └─ ui/
-│     │     ├─ button.tsx
-│     │     ├─ card.tsx
-│     │     ├─ input.tsx
-│     │     └─ label.tsx
-│     ├─ public/
-│     ├─ package.json
-│     └─ next.config.mjs
-└─ README.md
-```
-
----
-
-## Node / Python Versions
-
-- **Node**: 20.x (pinned via `.nvmrc` recommended)
-- **Python**: 3.11 (as used in `environment.yml`)
-- Make sure to **activate** the correct environment (`nvm use`, `conda activate`) before running respective apps.
-
----
-
-## Security Notes
-- Keep **Next.js** patched in the `14.2.x` line to avoid known CVEs. If `npm audit` flags Next, bump it.
-- Lockfiles (`package-lock.json`) should be committed to keep deterministic installs.
-
----
+- [Web UI guide](WEB_UI_GUIDE.md)
+- [Frozen Studio interaction and data contract](apps/web-next/STUDIO_PROTOTYPE.md)
+- [Deployment preflight and rollback contract](apps/web-next/DEPLOYMENT_PREFLIGHT.md)
+- [WebMCP evaluation guide](apps/web-next/evals/README.md)
+- [Web app package notes](apps/web-next/README.md)
 
 ## License
 
-MIT License — free to use and adapt
+Median Viz is available under the [MIT License](LICENSE).
