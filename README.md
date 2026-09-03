@@ -150,13 +150,13 @@ npm run eval:webmcp
 npm run build
 ```
 
-Submission-freeze verification: **56 tests passed**, **12 WebMCP scenarios passed**, and the production build completed with source and generated-output privacy scans.
+Submission-freeze verification: **61 tests passed**, **12 WebMCP scenarios passed**, and the production build completed with source and generated-output privacy scans.
 
 The primary route is `/studio`. The original `/pie`, `/bar`, and `/map` routes remain available as legacy chart-gallery examples.
 
 ## Deployment
 
-The Studio is deployed on Vercel at [median-viz.vercel.app/studio](https://median-viz.vercel.app/studio). The deployable app root is `apps/web-next`, the runtime is Node.js 22.x, and the guarded production build runs both source and generated-output privacy validation.
+The Studio is deployed on Vercel at [median-viz.vercel.app/studio](https://median-viz.vercel.app/studio). The deployable app root is `apps/web-next`, the runtime is Node.js 22.x, and every Vercel build runs tests, WebMCP evaluations, and source/generated-output privacy validation.
 
 Private denylist values and local filesystem paths are never committed or documented. See the [deployment preflight and rollback contract](apps/web-next/DEPLOYMENT_PREFLIGHT.md).
 

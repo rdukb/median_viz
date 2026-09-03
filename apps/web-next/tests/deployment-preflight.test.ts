@@ -39,7 +39,10 @@ test('Vercel configuration uses the guarded build and Node 22', () => {
   assert.match(packageJson.scripts.build, /privacy-scan\.mjs source/)
   assert.match(packageJson.scripts.build, /privacy-scan\.mjs build/)
   assert.equal(vercel.framework, 'nextjs')
-  assert.equal(vercel.buildCommand, 'npm run build')
+  assert.equal(
+    vercel.buildCommand,
+    'npm test && npm run eval:webmcp && npm run build'
+  )
   assert.equal('public' in vercel, false)
   assert.match(readFileSync('../../.gitignore', 'utf8'), /^\.vercel\/$/m)
 })
@@ -60,9 +63,10 @@ test('deployment preflight remains non-deploying and approval gated', () => {
   assert.equal(smoke.includes(legacyBase64Name), false)
 })
 
-test('source binding excludes only the reviewed local process-manager file', () => {
+test('source binding checks every tracked and untracked deployable app file', () => {
   const preflight = readFileSync('scripts/deployment-preflight.mjs', 'utf8')
   assert.match(preflight, /--untracked-files=all/)
-  assert.match(preflight, /\?\? apps\/web-next\/ecosystem\.config\.js/)
+  assert.doesNotMatch(preflight, /reviewedLocalOnlyStatusEntries/)
+  assert.doesNotMatch(preflight, /ecosystem\.config\.js/)
   assert.doesNotMatch(preflight, /--untracked-files=no/)
 })

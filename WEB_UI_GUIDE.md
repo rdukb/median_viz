@@ -98,7 +98,7 @@ The existing Vercel project uses:
 - repository: `rdukb/median_viz`;
 - root directory: `apps/web-next`;
 - runtime: Node.js 22.x;
-- build command: `npm run build`.
+- build command: `npm test && npm run eval:webmcp && npm run build`.
 
 Do not create a duplicate project. Keep private privacy-validation values in the deployment secret store and out of Git, logs, generated output, and documentation. See [DEPLOYMENT_PREFLIGHT.md](apps/web-next/DEPLOYMENT_PREFLIGHT.md) for the guarded deployment and rollback procedure.
 

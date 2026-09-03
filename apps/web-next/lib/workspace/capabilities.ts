@@ -43,7 +43,7 @@ export type WorkspaceCapabilities = {
     startDate: string,
     endDate: string,
     context?: CapabilityContext
-  ) => void
+  ) => { ok: true } | { ok: false; code: 'invalid_date_range' }
   setVisualization: (
     chartType: ChartType,
     context?: CapabilityContext
@@ -141,22 +141,24 @@ export function createWorkspaceCapabilities(
     },
 
     setDateRange(startDate, endDate, context) {
+      if (startDate > endDate) {
+        return { ok: false, code: 'invalid_date_range' }
+      }
       const state = store.getState()
-      const normalizedStart = startDate <= endDate ? startDate : endDate
-      const normalizedEnd = startDate <= endDate ? endDate : startDate
       const currentFrame =
-        state.animation.currentFrame < normalizedStart ||
-        state.animation.currentFrame > normalizedEnd
-          ? normalizedStart
+        state.animation.currentFrame < startDate ||
+        state.animation.currentFrame > endDate
+          ? startDate
           : state.animation.currentFrame
       apply(
         {
-          selection: { startDate: normalizedStart, endDate: normalizedEnd },
+          selection: { startDate, endDate },
           animation: { currentFrame, playing: false },
         },
         'Changed the report-date range.',
         context
       )
+      return { ok: true }
     },
 
     setVisualization(chartType, context) {
@@ -178,10 +180,15 @@ export function createWorkspaceCapabilities(
 
     advanceAnimationFrame(orderedFrames) {
       const state = store.getState()
-      if (orderedFrames.length < 2) return
-      const index = orderedFrames.indexOf(state.animation.currentFrame)
+      if (!state.animation.enabled || !state.animation.playing) return
+      const currentFrames = orderedFrames.filter(
+        (frame) =>
+          frame >= state.selection.startDate && frame <= state.selection.endDate
+      )
+      if (currentFrames.length < 2) return
+      const index = currentFrames.indexOf(state.animation.currentFrame)
       apply(
-        { animation: { currentFrame: orderedFrames[(index + 1) % orderedFrames.length] } },
+        { animation: { currentFrame: currentFrames[(index + 1) % currentFrames.length] } },
         'Advanced the daily animation marker.'
       )
     },
@@ -190,7 +197,14 @@ export function createWorkspaceCapabilities(
       const state = store.getState()
       const comparisonDimension =
         patch.analysis?.comparisonDimension ?? state.analysis.comparisonDimension
-      const chartType = patch.visualization?.chartType ?? state.visualization.chartType
+      const comparisonChanged =
+        patch.analysis?.comparisonDimension !== undefined &&
+        patch.analysis.comparisonDimension !== state.analysis.comparisonDimension
+      const chartType = patch.visualization?.chartType ?? (
+        comparisonChanged
+          ? compatibleChartForComparison(comparisonDimension, state.visualization.chartType)
+          : state.visualization.chartType
+      )
       if (!isChartAllowed(comparisonDimension, chartType)) {
         return {
           ok: false,
@@ -201,7 +215,20 @@ export function createWorkspaceCapabilities(
           },
         }
       }
-      apply(patch, 'Configured the shared exploration view.', context)
+      const normalizedPatch: WorkspacePatch = {
+        ...patch,
+        ...(comparisonChanged && patch.visualization?.chartType === undefined
+          ? { visualization: { chartType } }
+          : {}),
+        ...(comparisonChanged && patch.animation === undefined
+          ? {
+              animation: comparisonDimension === 'time'
+                ? { playing: false }
+                : { enabled: false, playing: false },
+            }
+          : {}),
+      }
+      apply(normalizedPatch, 'Configured the shared exploration view.', context)
       return { ok: true }
     },
 

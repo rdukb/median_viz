@@ -16,9 +16,7 @@ const expectedTools = [
   'set_animation',
   'reset_view',
 ]
-const reviewedLocalOnlyStatusEntries = new Set([
-  '?? apps/web-next/ecosystem.config.js',
-])
+const vercelBuildCommand = 'npm test && npm run eval:webmcp && npm run build'
 
 const checks = []
 const add = (status, id, message) => checks.push({ status, id, message })
@@ -57,10 +55,10 @@ try {
 
   const vercel = readJson('vercel.json')
   add(
-    vercel.framework === 'nextjs' && vercel.buildCommand === 'npm run build'
+    vercel.framework === 'nextjs' && vercel.buildCommand === vercelBuildCommand
       ? 'PASS' : 'FAIL',
     'vercel-config',
-    'vercel.json selects Next.js and the guarded build command.'
+    'vercel.json selects Next.js and gates builds with tests, WebMCP evaluations, and privacy scans.'
   )
 
   const nextConfig = read('next.config.mjs')
@@ -141,16 +139,11 @@ add(
 
 try {
   const deployScopeStatus = git(['status', '--porcelain=v1', '--untracked-files=all', '--', 'apps/web-next'])
-  const blockingDeployScopeEntries = deployScopeStatus
-    .split('\n')
-    .filter(Boolean)
-    .filter((entry) => !reviewedLocalOnlyStatusEntries.has(entry))
-  const deployScopeIsClean = blockingDeployScopeEntries.length === 0
   add(
-    deployScopeIsClean ? 'PASS' : 'BLOCKED',
+    deployScopeStatus === '' ? 'PASS' : 'BLOCKED',
     'immutable-source-binding',
-    deployScopeIsClean
-      ? `Deployable app files are clean at commit ${git(['rev-parse', 'HEAD']).slice(0, 12)}; reviewed local-only files are excluded.`
+    deployScopeStatus === ''
+      ? `Deployable app files are clean at commit ${git(['rev-parse', 'HEAD']).slice(0, 12)}.`
       : 'Deployable app changes are not committed; a hosted build cannot be bound to the verified local source yet.'
   )
 } catch (error) {

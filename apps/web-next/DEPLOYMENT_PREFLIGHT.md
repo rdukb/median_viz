@@ -49,7 +49,7 @@ The existing Vercel project uses:
 - Framework: Next.js;
 - Node.js: `22.x`;
 - Install: lockfile-detected npm install;
-- Build Command: `npm run build`;
+- Build Command: `npm test && npm run eval:webmcp && npm run build`;
 - Output: Next.js-managed `.next` output;
 - preview before production promotion.
 
@@ -112,7 +112,7 @@ The deployment packet must record:
 - privacy-secret presence by name only;
 - smoke-test result.
 
-The source-binding check remains conservative for tracked and untracked files under `apps/web-next`. The reviewed local process-manager file `apps/web-next/ecosystem.config.js` is the sole explicit exception because it is not a Git or Vercel deployment input; any other uncommitted app file blocks the gate.
+The source-binding check is conservative for every tracked and untracked file under `apps/web-next`. Any uncommitted app file blocks the gate; exclusions must be resolved outside the deployable tree rather than allowlisted in the preflight.
 
 ## Rollback contract
 

@@ -40,6 +40,19 @@ type ActiveRegistration = {
 const activeRegistrations = new WeakMap<object, ActiveRegistration>()
 const noop = () => {}
 
+function internalToolFailure(capabilities: WorkspaceCapabilities) {
+  const revision = capabilities.getState().runtime.revision
+  return {
+    ok: false as const,
+    previousRevision: revision,
+    newRevision: revision,
+    error: {
+      code: 'internal_tool_error',
+      message: 'The Studio tool failed safely. Read the workspace state before retrying.',
+    },
+  }
+}
+
 export function getActiveDocumentModelContext(
   activeDocument: Document
 ): WebMcpModelContext | null {
@@ -77,7 +90,13 @@ export function createStudioWebMcpTools(
       ),
       untrustedContentHint: false,
     },
-    execute: async (input) => executeByName[name](input),
+    execute: async (input) => {
+      try {
+        return await executeByName[name](input)
+      } catch {
+        return internalToolFailure(capabilities)
+      }
+    },
   }))
 }
 

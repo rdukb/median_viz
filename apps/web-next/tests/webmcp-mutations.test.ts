@@ -164,6 +164,15 @@ test('invalid filter and animation inputs fail without state change', async () =
   assert.equal(identityFailure.error.code, 'invalid_tool_input')
   assert.equal(harness.getState(), before)
 
+  const dateFailure = await callMutation(tools, 'apply_filters', {
+    mode: 'replace',
+    startDate: '2026-08-20',
+    endDate: '2026-08-08',
+  })
+  assert.equal(dateFailure.ok, false)
+  assert.equal(dateFailure.error.code, 'invalid_tool_input')
+  assert.equal(harness.getState(), before)
+
   const animationFailure = await callMutation(tools, 'set_animation', {
     enabled: false,
     playing: true,
@@ -171,6 +180,56 @@ test('invalid filter and animation inputs fail without state change', async () =
   assert.equal(animationFailure.ok, false)
   assert.equal(animationFailure.error.code, 'invalid_tool_input')
   assert.equal(harness.getState(), before)
+})
+
+test('comparison-only agent changes repair stale chart and animation state', async () => {
+  const harness = createHarness()
+  const tools = createStudioWebMcpTools(harness.snapshot, harness.capabilities)
+  const animated = await callMutation(tools, 'set_animation', {
+    mode: 'day_by_day',
+    expectedRevision: 0,
+  })
+  assert.equal(animated.ok, true)
+  assert.equal(harness.getState().visualization.chartType, 'line')
+
+  const compared = await callMutation(tools, 'configure_analysis', {
+    comparisonDimension: 'product_ad_set',
+    expectedRevision: 1,
+  })
+
+  assert.equal(compared.ok, true)
+  assert.equal(compared.newRevision, 2)
+  assert.equal(harness.getState().analysis.comparisonDimension, 'product_ad_set')
+  assert.equal(harness.getState().visualization.chartType, 'bar')
+  assert.equal(harness.getState().animation.enabled, false)
+  assert.equal(harness.getState().animation.playing, false)
+})
+
+test('unexpected tool failures return a privacy-safe structured error', async () => {
+  const harness = createHarness()
+  const capabilities: WorkspaceCapabilities = {
+    ...harness.capabilities,
+    configureView() {
+      throw new Error('private internal implementation detail')
+    },
+  }
+  const tools = createStudioWebMcpTools(harness.snapshot, capabilities)
+  const output = await callMutation(tools, 'configure_analysis', {
+    metric: 'cpc',
+    expectedRevision: 0,
+  })
+
+  assert.deepEqual(output, {
+    ok: false,
+    previousRevision: 0,
+    newRevision: 0,
+    error: {
+      code: 'internal_tool_error',
+      message: 'The Studio tool failed safely. Read the workspace state before retrying.',
+    },
+  })
+  assert.doesNotMatch(JSON.stringify(output), /private internal implementation detail/)
+  assert.equal(harness.getState().runtime.revision, 0)
 })
 
 test('WebMCP writes are immediately visible through workspace reads and human state', async () => {

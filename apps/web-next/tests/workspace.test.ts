@@ -54,6 +54,73 @@ test('invalid visualization capability calls do not mutate workspace state', () 
   assert.equal(state.visualization.chartType, 'bar')
 })
 
+test('comparison changes repair chart and animation state consistently', () => {
+  const initial = createInitialWorkspaceState(studioFixtureDataset)
+  const reducer = createWorkspaceReducer(initial)
+  let state = initial
+  const capabilities = createWorkspaceCapabilities({
+    getState: () => state,
+    dispatch: (action: WorkspaceAction) => { state = reducer(state, action) },
+  })
+
+  capabilities.setAnimation({ enabled: true, playing: true })
+  capabilities.setComparisonDimension('time')
+  capabilities.setAnimation({ enabled: true, playing: true })
+  const result = capabilities.configureView({
+    analysis: { comparisonDimension: 'product_ad_set' },
+  })
+
+  assert.deepEqual(result, { ok: true })
+  assert.equal(state.analysis.comparisonDimension, 'product_ad_set')
+  assert.equal(state.visualization.chartType, 'bar')
+  assert.deepEqual(state.animation, {
+    enabled: false,
+    playing: false,
+    currentFrame: '2026-08-08',
+  })
+})
+
+test('reversed human date ranges fail without changing state', () => {
+  const initial = createInitialWorkspaceState(studioFixtureDataset)
+  const reducer = createWorkspaceReducer(initial)
+  let state = initial
+  const capabilities = createWorkspaceCapabilities({
+    getState: () => state,
+    dispatch: (action: WorkspaceAction) => { state = reducer(state, action) },
+  })
+
+  const result = capabilities.setDateRange('2026-08-20', '2026-08-08')
+
+  assert.deepEqual(result, { ok: false, code: 'invalid_date_range' })
+  assert.equal(state, initial)
+})
+
+test('queued animation ticks cannot advance after playback stops', () => {
+  const initial = createInitialWorkspaceState(studioFixtureDataset)
+  const reducer = createWorkspaceReducer(initial)
+  let state = initial
+  const capabilities = createWorkspaceCapabilities({
+    getState: () => state,
+    dispatch: (action: WorkspaceAction) => { state = reducer(state, action) },
+  })
+  const allFrames = Array.from({ length: 14 }, (_, index) =>
+    `2026-08-${String(8 + index).padStart(2, '0')}`
+  )
+
+  capabilities.setAnimation({
+    enabled: true,
+    playing: true,
+    currentFrame: '2026-08-12',
+  })
+  capabilities.setDateRange('2026-08-12', '2026-08-14')
+  const beforeQueuedTick = state
+  capabilities.advanceAnimationFrame(allFrames)
+
+  assert.equal(state, beforeQueuedTick)
+  assert.equal(state.animation.currentFrame, '2026-08-12')
+  assert.equal(state.animation.playing, false)
+})
+
 test('agent capabilities write Agent Activity against the shared revision', () => {
   const initial = createInitialWorkspaceState(studioFixtureDataset)
   const reducer = createWorkspaceReducer(initial)
